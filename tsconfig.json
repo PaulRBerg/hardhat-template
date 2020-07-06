@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es5", "es6"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5"
+  },
+  "exclude": ["node_modules"],
+  "include": [
+    "@types/**/*",
+    "artifacts/**/*",
+    "artifacts/**/*.json",
+    "dev-utils/**/*",
+    "scripts/**/*",
+    "tasks/**/*",
+    "test/**/*",
+    "typechain/**/*",
+    "buidler.config.ts"
+  ]
+}

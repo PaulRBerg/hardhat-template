@@ -1,0 +1,80 @@
+{
+  "name": "@paulrberg/solidity-template",
+  "description": "To be used when building a new solidity project from scratch",
+  "version": "1.0.0",
+  "author": {
+    "name": "Sablier",
+    "email": "hello@sablier.finance",
+    "url": "https://sablier.finance"
+  },
+  "bugs": {
+    "url": "https://github.com/paulrberg/solidity-template/issues"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@ethersproject/abstract-signer": "^5.0.1",
+    "@ethersproject/bignumber": "^5.0.3",
+    "@ethersproject/wallet": "^5.0.1",
+    "@nomiclabs/buidler": "^1.3.8",
+    "@nomiclabs/buidler-ethers": "^2.0.0",
+    "@nomiclabs/buidler-waffle": "^2.0.0",
+    "@typechain/ethers-v5": "^0.0.2",
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.14",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "chai": "^4.2.0",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "ethereum-waffle": "^3.0.1",
+    "ethers": "^5.0.4",
+    "husky": "^4.2.5",
+    "mocha": "^8.0.1",
+    "prettier": "^2.0.5",
+    "prettier-plugin-solidity": "^1.0.0-alpha.54",
+    "shx": "^0.3.2",
+    "solc": "0.6.10",
+    "solhint": "^3.0.0",
+    "solhint-plugin-prettier": "^0.0.4",
+    "solidity-coverage": "^0.7.9",
+    "ts-node": "^8.10.2",
+    "typechain": "^2.0.0",
+    "typescript": "^3.9.6"
+  },
+  "files": [
+    "/contracts"
+  ],
+  "homepage": "https://github.com/paulrberg/solidity-template#readme",
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "smart-contracts",
+    "solidity"
+  ],
+  "license": "LGPL-3.0-or-later",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulrberg/solidity-template"
+  },
+  "scripts": {
+    "build": "yarn run compile && yarn run typechain",
+    "clean": "shx rm -rf ./artifacts ./cache ./typechain ./tsconfig.build.tsbuildinfo",
+    "commit": "git-cz",
+    "compile": "buidler compile",
+    "coverage": "buidler coverage --solcoverjs ./.solcover.js --network coverage --temp artifacts --testfiles './test/**/*.ts'",
+    "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 'contracts/**/*.sol'",
+    "lint:ts": "eslint --config ./.eslintrc.js --ignore-path ./.eslintignore --ext .js,.ts .",
+    "prettier": "prettier --config .prettierrc --write '**/*.{js,json,md,sol,ts}'",
+    "prettier:list-different": "prettier --config .prettierrc --list-different '**/*.{js,json,md,sol,ts}'",
+    "test": "buidler test",
+    "typechain": "typechain --outDir typechain --target ethers-v5 'artifacts/*.json'"
+  }
+}
