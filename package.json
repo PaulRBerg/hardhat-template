@@ -21,6 +21,7 @@
     "@nomiclabs/buidler-waffle": "^2.0.0",
     "@typechain/ethers-v5": "^0.0.2",
     "@types/chai": "^4.2.11",
+    "@types/fs-extra": "^9.0.1",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.0.14",
     "@typescript-eslint/eslint-plugin": "^3.6.0",
@@ -33,6 +34,7 @@
     "eslint-config-prettier": "^6.11.0",
     "ethereum-waffle": "^3.0.1",
     "ethers": "^5.0.4",
+    "fs-extra": "^9.0.1",
     "husky": "^4.2.5",
     "mocha": "^8.0.1",
     "prettier": "^2.0.5",
@@ -42,6 +44,7 @@
     "solhint": "^3.0.0",
     "solhint-plugin-prettier": "^0.0.4",
     "solidity-coverage": "^0.7.9",
+    "ts-generator": "^0.0.8",
     "ts-node": "^8.10.2",
     "typechain": "^2.0.0",
     "typescript": "^3.9.6"
@@ -66,15 +69,15 @@
   },
   "scripts": {
     "build": "yarn run compile && yarn run typechain",
-    "clean": "shx rm -rf ./artifacts ./cache ./typechain ./tsconfig.build.tsbuildinfo",
+    "clean": "buidler clean",
     "commit": "git-cz",
     "compile": "buidler compile",
     "coverage": "buidler coverage --solcoverjs ./.solcover.js --network coverage --temp artifacts --testfiles './test/**/*.ts'",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 'contracts/**/*.sol'",
-    "lint:ts": "eslint --config ./.eslintrc.js --ignore-path ./.eslintignore --ext .js,.ts .",
+    "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
     "prettier": "prettier --config .prettierrc --write '**/*.{js,json,md,sol,ts}'",
     "prettier:list-different": "prettier --config .prettierrc --list-different '**/*.{js,json,md,sol,ts}'",
     "test": "buidler test",
-    "typechain": "typechain --outDir typechain --target ethers-v5 'artifacts/*.json'"
+    "typechain": "buidler typechain"
   }
 }

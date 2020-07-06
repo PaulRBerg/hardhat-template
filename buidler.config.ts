@@ -5,6 +5,8 @@ dotenvConfig({ path: resolve(__dirname, "./.env") });
 import { BuidlerConfig, usePlugin } from "@nomiclabs/buidler/config";
 import { HDAccountsConfig } from "@nomiclabs/buidler/types";
 import "./tasks/accounts";
+import "./tasks/clean";
+import "./tasks/typechain";
 
 usePlugin("@nomiclabs/buidler-waffle");
 usePlugin("solidity-coverage");
@@ -68,6 +70,8 @@ const config: BuidlerConfig = {
   paths: {
     artifacts: "./artifacts",
     cache: "./cache",
+    coverage: "./coverage",
+    coverageJson: "./coverage.json",
     root: "./",
     sources: "./contracts",
     tests: "./test",
@@ -80,6 +84,10 @@ const config: BuidlerConfig = {
     },
     version: "0.6.10",
   },
+  typechain: {
+    outDir: "typechain",
+    target: "ethers-v5"
+  }
 };
 
 export default config;

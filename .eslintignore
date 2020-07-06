@@ -9,6 +9,5 @@ node_modules/
 typechain/
 
 # files
-.eslintrc.js
 .solcover.js
 coverage.json
