@@ -1,7 +1,7 @@
 import chai from "chai";
 import { Wallet } from "@ethersproject/wallet";
 import { deployContract, solidity } from "ethereum-waffle";
-import { ethers, waffle } from "@nomiclabs/buidler";
+import { ethers } from "@nomiclabs/buidler";
 
 import GreeterArtifact from "../artifacts/Greeter.json";
 
