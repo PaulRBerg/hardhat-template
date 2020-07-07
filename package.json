@@ -3,9 +3,8 @@
   "description": "To be used when building a new solidity project from scratch",
   "version": "1.0.0",
   "author": {
-    "name": "Sablier",
-    "email": "hello@sablier.finance",
-    "url": "https://sablier.finance"
+    "name": "Paul Razvan Berg",
+    "url": "https://paulrberg.com"
   },
   "bugs": {
     "url": "https://github.com/paulrberg/solidity-template/issues"
