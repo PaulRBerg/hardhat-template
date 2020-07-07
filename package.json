@@ -39,6 +39,7 @@
     "mocha": "^8.0.1",
     "prettier": "^2.0.5",
     "prettier-plugin-solidity": "^1.0.0-alpha.54",
+    "shelljs": "^0.8.4",
     "shx": "^0.3.2",
     "solc": "0.6.10",
     "solhint": "^3.0.0",
