@@ -86,8 +86,8 @@ const config: BuidlerConfig = {
   },
   typechain: {
     outDir: "typechain",
-    target: "ethers-v5"
-  }
+    target: "ethers-v5",
+  },
 };
 
 export default config;

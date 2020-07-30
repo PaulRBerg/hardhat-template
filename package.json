@@ -72,11 +72,11 @@
     "clean": "buidler clean",
     "commit": "git-cz",
     "compile": "buidler compile",
-    "coverage": "buidler coverage --solcoverjs ./.solcover.js --network coverage --temp artifacts --testfiles './test/**/*.ts'",
-    "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 'contracts/**/*.sol'",
+    "coverage": "buidler coverage --solcoverjs ./.solcover.js --network coverage --temp artifacts --testfiles \"./test/**/*.ts\"",
+    "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
-    "prettier": "prettier --config .prettierrc --write '**/*.{js,json,md,sol,ts}'",
-    "prettier:list-different": "prettier --config .prettierrc --list-different '**/*.{js,json,md,sol,ts}'",
+    "prettier": "prettier --config .prettierrc --write \"**/*.{js,json,md,sol,ts}\"",
+    "prettier:list-different": "prettier --config .prettierrc --list-different \"**/*.{js,json,md,sol,ts}\"",
     "test": "buidler test",
     "typechain": "buidler typechain"
   }
