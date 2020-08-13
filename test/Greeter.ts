@@ -1,5 +1,5 @@
 import chai from "chai";
-import { Wallet } from "@ethersproject/wallet";
+import { Signer } from "@ethersproject/abstract-signer";
 import { deployContract, solidity } from "ethereum-waffle";
 import { ethers } from "@nomiclabs/buidler";
 
@@ -11,15 +11,16 @@ import { shouldBehaveLikeGreeter } from "./Greeter.behavior";
 chai.use(solidity);
 
 setTimeout(async function () {
-  const wallets = (await ethers.getSigners()) as Wallet[];
+  const signers: Signer[] = await ethers.getSigners();
+  const admin: Signer = signers[0];
 
   describe("Greeter", function () {
     beforeEach(async function () {
       const greeting: string = "Hello, world!";
-      this.greeter = (await deployContract(wallets[0], GreeterArtifact, [greeting])) as Greeter;
+      this.greeter = (await deployContract(admin, GreeterArtifact, [greeting])) as Greeter;
     });
 
-    shouldBehaveLikeGreeter(wallets);
+    shouldBehaveLikeGreeter(signers);
   });
 
   run();
