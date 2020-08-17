@@ -7,6 +7,7 @@
     "constructor-syntax": "error",
     "max-line-length": ["error", 120],
     "not-rely-on-time": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "reason-string": ["warn", { "maxLength": 64 }]
   }
 }
