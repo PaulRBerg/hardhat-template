@@ -41,7 +41,7 @@
     "shx": "^0.3.2",
     "solc": "0.6.10",
     "solhint": "^3.0.0",
-    "solhint-plugin-prettier": "^0.0.4",
+    "solhint-plugin-prettier": "^0.0.5",
     "solidity-coverage": "^0.7.9",
     "ts-generator": "^0.0.8",
     "ts-node": "^8.10.2",
