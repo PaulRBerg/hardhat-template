@@ -14,7 +14,7 @@
     "@commitlint/config-conventional": "^9.0.1",
     "@ethersproject/abstract-signer": "^5.0.1",
     "@ethersproject/bignumber": "^5.0.3",
-    "@nomiclabs/buidler": "^1.3.8",
+    "@nomiclabs/buidler": "^1.4.4",
     "@nomiclabs/buidler-ethers": "^2.0.0",
     "@nomiclabs/buidler-waffle": "^2.0.0",
     "@typechain/ethers-v5": "^1.0.0",
