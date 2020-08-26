@@ -6,16 +6,23 @@ import GreeterArtifact from "../artifacts/Greeter.json";
 import { Greeter } from "../typechain/Greeter";
 import { shouldBehaveLikeGreeter } from "./Greeter.behavior";
 
-const { deployContract } = waffle;
+const { createFixtureLoader, deployContract } = waffle;
+
+async function greeterFixture(signers: Signer[]): Promise<{ greeter: Greeter }> {
+  const greeter: Greeter = (await deployContract(signers[0], GreeterArtifact, ["Hello, world!"])) as Greeter;
+  return { greeter };
+}
 
 setTimeout(async function () {
   const signers: Signer[] = await ethers.getSigners();
-  const admin: Signer = signers[0];
 
   describe("Greeter", function () {
     beforeEach(async function () {
-      const greeting: string = "Hello, world!";
-      this.greeter = (await deployContract(admin, GreeterArtifact, [greeting])) as Greeter;
+      /**
+       * You can replace "waffle.provider.getWallets" with "ethers.getSigners()" - the bug persists.
+       */
+      const { greeter } = await createFixtureLoader(await waffle.provider.getWallets())(greeterFixture);
+      this.greeter = greeter;
     });
 
     shouldBehaveLikeGreeter(signers);
