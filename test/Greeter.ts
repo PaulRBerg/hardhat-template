@@ -1,14 +1,11 @@
-import chai from "chai";
 import { Signer } from "@ethersproject/abstract-signer";
-import { deployContract, solidity } from "ethereum-waffle";
+import { deployContract } from "ethereum-waffle";
 import { ethers } from "@nomiclabs/buidler";
 
 import GreeterArtifact from "../artifacts/Greeter.json";
 
 import { Greeter } from "../typechain/Greeter";
 import { shouldBehaveLikeGreeter } from "./Greeter.behavior";
-
-chai.use(solidity);
 
 setTimeout(async function () {
   const signers: Signer[] = await ethers.getSigners();
