@@ -48,7 +48,6 @@ const config: BuidlerConfig = {
       chainId: 31337,
     },
     coverage: {
-      ...createNetworkConfig(),
       url: "http://127.0.0.1:8555",
     },
     goerli: {
