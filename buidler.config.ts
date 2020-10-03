@@ -17,13 +17,11 @@ usePlugin("solidity-coverage");
  */
 function createNetworkConfig(network?: string): { accounts: HDAccountsConfig; url: string | undefined } {
   if (!process.env.MNEMONIC) {
-    console.log("Please set your MNEMONIC in a .env file");
-    process.exit(1);
+    throw new Error("Please set your MNEMONIC in a .env file");
   }
 
   if (!process.env.INFURA_API_KEY) {
-    console.log("Please set your INFURA_API_KEY");
-    process.exit(1);
+    throw new Error("Please set your INFURA_API_KEY");
   }
 
   return {
