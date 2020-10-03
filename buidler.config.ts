@@ -15,7 +15,7 @@ usePlugin("solidity-coverage");
  * @dev You must have a `.env` file. Follow the example in `.env.example`.
  * @param {string} network The name of the testnet
  */
-function createBuidlerConfig(network?: string): { accounts: HDAccountsConfig; url: string | undefined } {
+function createNetworkConfig(network?: string): { accounts: HDAccountsConfig; url: string | undefined } {
   if (!process.env.MNEMONIC) {
     console.log("Please set your MNEMONIC in a .env file");
     process.exit(1);
@@ -48,23 +48,23 @@ const config: BuidlerConfig = {
       chainId: 31337,
     },
     coverage: {
-      ...createBuidlerConfig(),
+      ...createNetworkConfig(),
       url: "http://127.0.0.1:8555",
     },
     goerli: {
-      ...createBuidlerConfig("goerli"),
+      ...createNetworkConfig("goerli"),
       chainId: 5,
     },
     kovan: {
-      ...createBuidlerConfig("kovan"),
+      ...createNetworkConfig("kovan"),
       chainId: 42,
     },
     rinkeby: {
-      ...createBuidlerConfig("rinkeby"),
+      ...createNetworkConfig("rinkeby"),
       chainId: 4,
     },
     ropsten: {
-      ...createBuidlerConfig("ropsten"),
+      ...createNetworkConfig("ropsten"),
       chainId: 3,
     },
   },
