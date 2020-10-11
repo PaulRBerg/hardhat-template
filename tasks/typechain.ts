@@ -5,7 +5,7 @@ import { tsGenerator } from "ts-generator";
 
 import { TASK_TYPECHAIN } from "./task-names";
 
-task(TASK_TYPECHAIN, "Generate Typechain typings for compiled contracts", async function (_taskArgs, { config, run }) {
+task(TASK_TYPECHAIN, "Generate TypeChain typings for compiled contracts", async function (_taskArgs, { config, run }) {
   if (!config.typechain || !config.typechain?.outDir || !config.typechain?.target) {
     throw new Error("Invalid TypeChain configuration. Please provide it via buidler.config.ts");
   }

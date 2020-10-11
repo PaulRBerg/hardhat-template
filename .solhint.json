@@ -5,9 +5,12 @@
     "code-complexity": ["error", 7],
     "compiler-version": ["error", "^0.7.2"],
     "constructor-syntax": "error",
+    "func-visibility": ["error", { "ignoreConstructors": true }],
     "max-line-length": ["error", 120],
     "not-rely-on-time": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "endOfLine":"auto"
+    }],
     "reason-string": ["warn", { "maxLength": 64 }]
   }
 }

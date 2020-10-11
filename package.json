@@ -58,7 +58,7 @@
     "smart-contracts",
     "solidity"
   ],
-  "license": "LGPL-3.0-or-later",
+  "license": "WTFPL",
   "publishConfig": {
     "access": "public"
   },
