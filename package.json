@@ -1,6 +1,6 @@
 {
   "name": "@paulrberg/solidity-template",
-  "description": "To be used when building a new solidity project from scratch",
+  "description": "Setup for writing Solidity smart contracts",
   "version": "1.0.0",
   "author": {
     "name": "Paul Razvan Berg",
@@ -38,7 +38,6 @@
     "prettier": "^2.1.2",
     "prettier-plugin-solidity": "^1.0.0-alpha.59",
     "shelljs": "^0.8.4",
-    "shx": "^0.3.2",
     "solc": "0.7.2",
     "solhint": "^3.2.1",
     "solhint-plugin-prettier": "^0.0.5",

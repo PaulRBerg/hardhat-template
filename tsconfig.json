@@ -17,7 +17,6 @@
     "@types/**/*",
     "artifacts/**/*",
     "artifacts/**/*.json",
-    "dev-utils/**/*",
     "scripts/**/*",
     "tasks/**/*",
     "test/**/*",
