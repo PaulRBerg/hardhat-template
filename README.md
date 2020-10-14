@@ -31,7 +31,7 @@ Compile the smart contracts with Buidler:
 $ yarn compile
 ```
 
-### Build
+### TypeChain
 
 Compile the smart contracts and generate TypeChain artifacts:
 

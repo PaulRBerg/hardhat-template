@@ -66,7 +66,6 @@
     "url": "https://github.com/paulrberg/solidity-template"
   },
   "scripts": {
-    "build": "yarn run compile && yarn run typechain",
     "clean": "buidler clean",
     "commit": "git-cz",
     "compile": "buidler compile",
