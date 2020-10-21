@@ -70,17 +70,16 @@ const config: BuidlerConfig = {
     cache: "./cache",
     coverage: "./coverage",
     coverageJson: "./coverage.json",
-    root: "./",
     sources: "./contracts",
     tests: "./test",
   },
   solc: {
     /* https://buidler.dev/buidler-evm/#solidity-optimizer-support */
     optimizer: {
-      enabled: false,
+      enabled: true,
       runs: 200,
     },
-    version: "0.7.2",
+    version: "0.7.4",
   },
   typechain: {
     outDir: "typechain",
