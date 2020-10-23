@@ -79,7 +79,7 @@ const config: BuidlerConfig = {
       enabled: false,
       runs: 200,
     },
-    version: "0.5.12",
+    version: "0.4.18",
   },
   typechain: {
     outDir: "typechain",
