@@ -1,0 +1,46 @@
+{
+  "contractName": "LibNote",
+  "abi": [
+    {
+      "anonymous": true,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes4",
+          "name": "sig",
+          "type": "bytes4"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "usr",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "arg1",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "arg2",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "LogNote",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723158209e4bdc2b395aa9a08a26034d69f1bbaebb6804d2c496fac02a2716beb905751d64736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a723158209e4bdc2b395aa9a08a26034d69f1bbaebb6804d2c496fac02a2716beb905751d64736f6c634300050c0032",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

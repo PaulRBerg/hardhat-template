@@ -2,14 +2,12 @@
 .coverage_artifacts/
 .coverage_cache/
 .coverage_contracts/
-artifacts/
 build/
 cache/
 coverage/
 dist/
 lib/
 node_modules/
-typechain/
 
 # files
 *.env
