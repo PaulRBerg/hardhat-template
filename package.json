@@ -6,9 +6,6 @@
     "name": "Paul Razvan Berg",
     "url": "https://paulrberg.com"
   },
-  "bugs": {
-    "url": "https://github.com/paulrberg/solidity-template/issues"
-  },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
@@ -50,7 +47,6 @@
   "files": [
     "/contracts"
   ],
-  "homepage": "https://github.com/paulrberg/solidity-template#readme",
   "keywords": [
     "blockchain",
     "ethereum",
@@ -60,10 +56,6 @@
   "license": "WTFPL",
   "publishConfig": {
     "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/paulrberg/solidity-template"
   },
   "scripts": {
     "clean": "buidler clean",
