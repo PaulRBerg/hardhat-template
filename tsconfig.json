@@ -21,6 +21,6 @@
     "tasks/**/*",
     "test/**/*",
     "typechain/**/*",
-    "buidler.config.ts"
+    "hardhat.config.ts"
   ]
 }
