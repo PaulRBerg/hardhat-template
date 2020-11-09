@@ -5073,6 +5073,11 @@ hard-rejection@^2.1.0:
   resolved "https://registry.yarnpkg.com/hard-rejection/-/hard-rejection-2.1.0.tgz#1c6eda5c1685c63942766d79bb40ae773cecd883"
   integrity sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==
 
+hardhat-spdx-license-identifier@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/hardhat-spdx-license-identifier/-/hardhat-spdx-license-identifier-2.0.1.tgz#62298acefa6ef1c69d6559cb245941bb270c0317"
+  integrity sha512-Dn+VGlQVp7dt1+eP8ROoWsbf/2XBIo6Z9uiF9jxj6WNbXdeqBYHlABagJZWjIA5x/lX8UGNtUZHa7XBHH/Qw+g==
+
 hardhat-typechain@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/hardhat-typechain/-/hardhat-typechain-0.3.3.tgz#cef7996d2054aecd5e6b7677130b2f2b1fe9d352"

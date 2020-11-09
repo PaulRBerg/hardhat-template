@@ -30,6 +30,7 @@
     "ethers": "^5.0.17",
     "fs-extra": "^9.0.1",
     "hardhat": "^2.0.2",
+    "hardhat-spdx-license-identifier": "^2.0.1",
     "hardhat-typechain": "^0.3.3",
     "husky": "^4.3.0",
     "mocha": "^8.1.3",

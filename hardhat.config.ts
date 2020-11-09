@@ -8,6 +8,7 @@ import "./tasks/accounts";
 import "./tasks/clean";
 
 import "@nomiclabs/hardhat-waffle";
+import 'hardhat-spdx-license-identifier';
 import "hardhat-typechain";
 // import "solidity-coverage";
 
@@ -87,6 +88,10 @@ const config: HardhatUserConfig = {
     outDir: "typechain",
     target: "ethers-v5",
   },
+  spdxLicenseIdentifier: {
+    overwrite: false,
+    runOnCompile: true,
+  }
 };
 
 export default config;
