@@ -62,7 +62,7 @@
     "commit": "git-cz",
     "compile": "buidler compile",
     "coverage": "buidler coverage --solcoverjs ./.solcover.js --network coverage --temp artifacts --testfiles \"./test/**/*.ts\"",
-    "lint": "yarn lint lint:sol && yarn run lint:ts && yarn run prettier:list-different",
+    "lint": "yarn lint:sol && yarn run lint:ts && yarn run prettier:list-different",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
     "prettier": "prettier --config .prettierrc --write \"**/*.{js,json,md,sol,ts}\"",
