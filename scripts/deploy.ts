@@ -1,12 +1,12 @@
-// We require the Buidler Runtime Environment explicitly here. This is optional
+// We require the Hardhat Runtime Environment explicitly here. This is optional
 // but useful for running the script in a standalone fashion through `node <script>`.
-// When running the script with `buidler run <script>` you'll find the Buidler
+// When running the script with `hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
-import { ethers } from "@nomiclabs/buidler";
+import { ethers } from "hardhat";
 import { Contract, ContractFactory } from "ethers";
 
 async function main(): Promise<void> {
-  // Buidler always runs the compile task when running scripts through it.
+  // Hardhat always runs the compile task when running scripts through it.
   // If this runs in a standalone fashion you may want to call compile manually
   // to make sure everything is compiled
   // await run("compile");

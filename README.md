@@ -2,7 +2,7 @@
 
 My favourite setup for writing Solidity smart contracts.
 
-- [Buidler](https://github.com/nomiclabs/buidler): compile and run the smart contracts on a local development network
+- [Hardhat](https://github.com/nomiclabs/hardhat): compile and run the smart contracts on a local development network
 - [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript types for smart contracts
 - [Ethers](https://github.com/ethers-io/ethers.js/): renowned Ethereum library and wallet implementation
 - [Waffle](https://github.com/EthWorks/Waffle): tooling for writing comprehensive smart contract tests
@@ -25,7 +25,7 @@ $ yarn install
 
 ### Compile
 
-Compile the smart contracts with Buidler:
+Compile the smart contracts with Hardhat:
 
 ```sh
 $ yarn compile
@@ -73,7 +73,7 @@ $ yarn coverage
 
 ### Clean
 
-Delete the smart contract artifacts, the coverage reports and the Buidler cache:
+Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
 
 ```sh
 $ yarn clean

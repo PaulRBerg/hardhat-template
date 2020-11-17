@@ -2,20 +2,22 @@ import { config as dotenvConfig } from "dotenv";
 import { resolve } from "path";
 dotenvConfig({ path: resolve(__dirname, "./.env") });
 
-import { BuidlerConfig, usePlugin } from "@nomiclabs/buidler/config";
-import { HDAccountsConfig } from "@nomiclabs/buidler/types";
+import { HardhatNetworkAccountsUserConfig } from "hardhat/types";
+import { HardhatUserConfig } from "hardhat/config";
 import "./tasks/accounts";
 import "./tasks/clean";
-import "./tasks/typechain";
 
-usePlugin("@nomiclabs/buidler-waffle");
-usePlugin("solidity-coverage");
+import "@nomiclabs/hardhat-waffle";
+import "hardhat-typechain";
+import "solidity-coverage";
 
 /**
  * @dev You must have a `.env` file. Follow the example in `.env.example`.
  * @param {string} network The name of the testnet
  */
-function createNetworkConfig(network?: string): { accounts: HDAccountsConfig; url: string | undefined } {
+function createNetworkConfig(
+  network?: string,
+): { accounts: HardhatNetworkAccountsUserConfig; url: string | undefined } {
   if (!process.env.MNEMONIC) {
     throw new Error("Please set your MNEMONIC in a .env file");
   }
@@ -35,14 +37,14 @@ function createNetworkConfig(network?: string): { accounts: HDAccountsConfig; ur
   };
 }
 
-const config: BuidlerConfig = {
-  defaultNetwork: "buidlerevm",
+const config: HardhatUserConfig = {
+  defaultNetwork: "hardhat",
   mocha: {
     /* Without this property set, the "setTimeout" from the Greeter.js file wouldn't work. */
     delay: true,
   },
   networks: {
-    buidlerevm: {
+    hardhat: {
       chainId: 31337,
     },
     coverage: {
@@ -68,22 +70,28 @@ const config: BuidlerConfig = {
   paths: {
     artifacts: "./artifacts",
     cache: "./cache",
-    coverage: "./coverage",
-    coverageJson: "./coverage.json",
+    // coverage: "./coverage",
+    // coverageJson: "./coverage.json",
     sources: "./contracts",
     tests: "./test",
   },
-  solc: {
-    /* https://buidler.dev/buidler-evm/#solidity-optimizer-support */
-    optimizer: {
-      enabled: true,
-      runs: 200,
-    },
+  solidity: {
     version: "0.7.4",
+    /* https://hardhat.org/hardhat-network/#solidity-optimizer-support */
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
   },
   typechain: {
     outDir: "typechain",
     target: "ethers-v5",
+  },
+  spdxLicenseIdentifier: {
+    overwrite: false,
+    runOnCompile: true,
   },
 };
 

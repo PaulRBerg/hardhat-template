@@ -1,7 +1,7 @@
 import { Signer } from "@ethersproject/abstract-signer";
-import { ethers, waffle } from "@nomiclabs/buidler";
+import { ethers, waffle } from "hardhat";
 
-import GreeterArtifact from "../artifacts/Greeter.json";
+import GreeterArtifact from "../artifacts/contracts/Greeter.sol/Greeter.json";
 
 import { Greeter } from "../typechain/Greeter";
 import { shouldBehaveLikeGreeter } from "./Greeter.behavior";
