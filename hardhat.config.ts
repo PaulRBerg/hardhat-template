@@ -8,7 +8,7 @@ import "./tasks/accounts";
 import "./tasks/clean";
 
 import "@nomiclabs/hardhat-waffle";
-import 'hardhat-spdx-license-identifier';
+import "hardhat-spdx-license-identifier";
 import "hardhat-typechain";
 // import "solidity-coverage";
 
@@ -16,7 +16,9 @@ import "hardhat-typechain";
  * @dev You must have a `.env` file. Follow the example in `.env.example`.
  * @param {string} network The name of the testnet
  */
-function createNetworkConfig(network?: string): { accounts: HardhatNetworkAccountsUserConfig; url: string | undefined } {
+function createNetworkConfig(
+  network?: string,
+): { accounts: HardhatNetworkAccountsUserConfig; url: string | undefined } {
   if (!process.env.MNEMONIC) {
     throw new Error("Please set your MNEMONIC in a .env file");
   }
@@ -91,7 +93,7 @@ const config: HardhatUserConfig = {
   spdxLicenseIdentifier: {
     overwrite: false,
     runOnCompile: true,
-  }
+  },
 };
 
 export default config;
