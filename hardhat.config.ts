@@ -8,7 +8,6 @@ import "./tasks/accounts";
 import "./tasks/clean";
 
 import "@nomiclabs/hardhat-waffle";
-import "hardhat-spdx-license-identifier";
 import "hardhat-typechain";
 import "solidity-coverage";
 
