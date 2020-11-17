@@ -1,9 +1,9 @@
 import { Greeter } from "../typechain/Greeter";
 
 declare module "hardhat/types" {
-  interface ProjectPaths {
-    // coverage: string;
-    // coverageJson: string;
+  interface ProjectPathsUserConfig {
+    coverage: string;
+    coverageJson: string;
   }
 }
 

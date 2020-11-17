@@ -70,8 +70,8 @@ const config: HardhatUserConfig = {
   paths: {
     artifacts: "./artifacts",
     cache: "./cache",
-    // coverage: "./coverage",
-    // coverageJson: "./coverage.json",
+    coverage: "./coverage",
+    coverageJson: "./coverage.json",
     sources: "./contracts",
     tests: "./test",
   },
@@ -88,10 +88,6 @@ const config: HardhatUserConfig = {
   typechain: {
     outDir: "typechain",
     target: "ethers-v5",
-  },
-  spdxLicenseIdentifier: {
-    overwrite: false,
-    runOnCompile: true,
   },
 };
 
