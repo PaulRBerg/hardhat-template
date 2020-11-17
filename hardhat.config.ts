@@ -10,7 +10,7 @@ import "./tasks/clean";
 import "@nomiclabs/hardhat-waffle";
 import "hardhat-spdx-license-identifier";
 import "hardhat-typechain";
-// import "solidity-coverage";
+import "solidity-coverage";
 
 /**
  * @dev You must have a `.env` file. Follow the example in `.env.example`.
