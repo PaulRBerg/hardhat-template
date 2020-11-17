@@ -2,8 +2,8 @@ import { config as dotenvConfig } from "dotenv";
 import { resolve } from "path";
 dotenvConfig({ path: resolve(__dirname, "./.env") });
 
-import { HardhatUserConfig } from "hardhat/config";
 import { HardhatNetworkAccountsUserConfig } from "hardhat/types";
+import { HardhatUserConfig } from "hardhat/config";
 import "./tasks/accounts";
 import "./tasks/clean";
 
