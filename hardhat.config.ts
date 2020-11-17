@@ -64,8 +64,6 @@ const config: HardhatUserConfig = {
   paths: {
     artifacts: "./artifacts",
     cache: "./cache",
-    coverage: "./coverage",
-    coverageJson: "./coverage.json",
     sources: "./contracts",
     tests: "./test",
   },
