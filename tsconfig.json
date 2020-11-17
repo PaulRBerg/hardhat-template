@@ -14,13 +14,13 @@
   },
   "exclude": ["node_modules"],
   "include": [
-    "types/**/*",
     "artifacts/**/*",
     "artifacts/**/*.json",
     "scripts/**/*",
     "tasks/**/*",
     "test/**/*",
     "typechain/**/*",
+    "types/**/*",
     "hardhat.config.ts"
   ]
 }

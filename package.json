@@ -51,6 +51,7 @@
   "keywords": [
     "blockchain",
     "ethereum",
+    "hardhat",
     "smart-contracts",
     "solidity"
   ],
@@ -62,7 +63,7 @@
     "clean": "hardhat clean",
     "commit": "git-cz",
     "compile": "hardhat compile",
-    "coverage": "hardhat coverage --solcoverjs ./.solcover.js --network coverage --temp artifacts --testfiles \"./test/**/*.ts\"",
+    "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"./test/**/*.ts\"",
     "lint": "yarn run lint:sol && yarn run lint:ts && yarn run prettier:list-different",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
