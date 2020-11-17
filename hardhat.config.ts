@@ -52,10 +52,6 @@ function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig 
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
-  mocha: {
-    // Without this property set, the "setTimeout" from the Greeter.js file wouldn't work.
-    delay: true,
-  },
   networks: {
     hardhat: {
       chainId: chainIds.hardhat,

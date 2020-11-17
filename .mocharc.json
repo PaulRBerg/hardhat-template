@@ -1,7 +1,6 @@
 {
-  "delay": true,
   "extension": ["ts"],
   "recursive": "test",
-  "require": ["@nomiclabs/buidler/register"],
+  "require": ["hardhat/register"],
   "timeout": 20000
 }
