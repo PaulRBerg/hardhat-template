@@ -7,7 +7,8 @@ import { NetworkUserConfig } from "hardhat/types";
 import "./tasks/accounts";
 import "./tasks/clean";
 
-import "@nomiclabs/hardhat-waffle";
+import "hardhat-deploy";
+import "hardhat-deploy-ethers";
 import "hardhat-typechain";
 import "solidity-coverage";
 
@@ -52,6 +53,9 @@ function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig 
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
+  namedAccounts: {
+    admin: 0,
+  },
   networks: {
     hardhat: {
       chainId: chainIds.hardhat,
