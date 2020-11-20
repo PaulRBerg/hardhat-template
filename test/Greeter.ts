@@ -1,6 +1,6 @@
 import { deployments, ethers, getNamedAccounts } from "hardhat";
 
-import { Accounts } from "../types";
+import { Accounts, Signers } from "../types";
 import { Greeter } from "../typechain/Greeter";
 import { shouldBehaveLikeGreeter } from "./Greeter.behavior";
 
@@ -16,7 +16,9 @@ const setup = deployments.createFixture(async () => {
 describe("Unit tests", function () {
   before(async function () {
     const accounts = await getNamedAccounts()
+    const signers = await ethers.getNamedSigners()
     this.accounts = accounts as unknown as Accounts;
+    this.signers = signers as unknown as Signers
   });
 
   describe("Greeter", function () {
