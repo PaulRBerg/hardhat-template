@@ -59,6 +59,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "sh ./pre-commit.sh",
+      "pre-push": "yarn test"
+    }
+  },
   "scripts": {
     "clean": "hardhat clean",
     "commit": "git-cz",
