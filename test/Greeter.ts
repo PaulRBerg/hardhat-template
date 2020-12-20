@@ -1,8 +1,10 @@
 import { Signer } from "@ethersproject/abstract-signer";
 import { ethers, waffle } from "hardhat";
 
+import GreeterArtifact from "../artifacts/contracts/Greeter.sol/Greeter.json";
+
 import { Accounts, Signers } from "../types";
-import { Greeter__factory } from "../typechain";
+import { Greeter } from "../typechain/Greeter";
 import { shouldBehaveLikeGreeter } from "./Greeter.behavior";
 
 const { deployContract } = waffle;
@@ -20,7 +22,7 @@ describe("Unit tests", function () {
   describe("Greeter", function () {
     beforeEach(async function () {
       const greeting: string = "Hello, world!";
-      this.greeter = await new Greeter__factory(this.signers.admin).deploy(greeting);
+      this.greeter = (await deployContract(this.signers.admin, GreeterArtifact, [greeting])) as Greeter;
     });
 
     shouldBehaveLikeGreeter();
