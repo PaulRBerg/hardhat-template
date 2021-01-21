@@ -2,6 +2,7 @@
 artifacts/
 build/
 cache/
+contracts/
 coverage/
 dist/
 lib/

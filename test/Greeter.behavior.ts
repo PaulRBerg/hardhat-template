@@ -1,5 +1,6 @@
-import chai, {expect} from 'chai';
-import {waffleChai} from '@ethereum-waffle/chai';
+/* eslint-disable func-names */
+import chai, { expect } from "chai";
+import { waffleChai } from "@ethereum-waffle/chai";
 
 chai.use(waffleChai);
 

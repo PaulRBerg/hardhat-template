@@ -1,21 +1,15 @@
 extends:
-  - eslint:recommended
-  - plugin:@typescript-eslint/eslint-recommended
-  - plugin:@typescript-eslint/recommended
-  - prettier/@typescript-eslint
-parser: "@typescript-eslint/parser"
+  - airbnb-typescript-prettier
 parserOptions:
-  project: tsconfig.json
-plugins:
-  - "@typescript-eslint"
+  project: ./tsconfig.json
 root: true
 rules:
-  "@typescript-eslint/no-floating-promises":
-    - error
-    - ignoreIIFE: true
-      ignoreVoid: true
-  "@typescript-eslint/no-inferrable-types": "off"
-  "@typescript-eslint/no-unused-vars":
-    - error
-    - argsIgnorePattern: _
-      varsIgnorePattern: _
+  "import/extensions":
+    - "error"
+    - {"ts": "never","d.ts": "never"}
+  "import/prefer-default-export": "off"
+  "import/no-extraneous-dependencies": "off"
+  # Needed for Mocha context
+  "prefer-arrow-callback": "off"
+  # Missing in airbnb-typescript-prettier
+  "@typescript-eslint/no-shadow": "off"
