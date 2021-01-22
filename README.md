@@ -3,6 +3,7 @@
 My favourite setup for writing Solidity smart contracts.
 
 - [Hardhat](https://github.com/nomiclabs/hardhat): compile and run the smart contracts on a local development network
+- [hardhat-deploy](hhttps://github.com/wighawag/hardhat-deploy): intelligently manage contract deployments and Etherscan verification
 - [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript types for smart contracts
 - [Ethers](https://github.com/ethers-io/ethers.js/): renowned Ethereum library and wallet implementation
 - [Waffle](https://github.com/EthWorks/Waffle): tooling for writing comprehensive smart contract tests
@@ -20,7 +21,7 @@ template" button at the top of the page.
 Before running any command, make sure to install dependencies:
 
 ```sh
-$ yarn install
+yarn install
 ```
 
 ### Compile
@@ -28,7 +29,7 @@ $ yarn install
 Compile the smart contracts with Hardhat:
 
 ```sh
-$ yarn compile
+yarn compile
 ```
 
 ### TypeChain
@@ -36,7 +37,7 @@ $ yarn compile
 Compile the smart contracts and generate TypeChain artifacts:
 
 ```sh
-$ yarn build
+yarn build
 ```
 
 ### Lint Solidity
@@ -44,7 +45,7 @@ $ yarn build
 Lint the Solidity code:
 
 ```sh
-$ yarn lint:sol
+yarn lint:sol
 ```
 
 ### Lint TypeScript
@@ -52,7 +53,7 @@ $ yarn lint:sol
 Lint the TypeScript code:
 
 ```sh
-$ yarn lint:ts
+yarn lint:ts
 ```
 
 ### Test
@@ -60,7 +61,7 @@ $ yarn lint:ts
 Run the Mocha tests:
 
 ```sh
-$ yarn test
+yarn test
 ```
 
 ### Coverage
@@ -68,7 +69,7 @@ $ yarn test
 Generate the code coverage report:
 
 ```sh
-$ yarn coverage
+yarn coverage
 ```
 
 ### Clean
@@ -76,5 +77,5 @@ $ yarn coverage
 Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
 
 ```sh
-$ yarn clean
+yarn clean
 ```
