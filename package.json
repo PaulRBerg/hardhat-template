@@ -1,11 +1,17 @@
 {
-  "name": "@paulrberg/solidity-template",
+  "name": "@tomafrench/solidity-template",
   "description": "Setup for writing Solidity smart contracts",
   "version": "1.0.0",
-  "author": {
-    "name": "Paul Razvan Berg",
-    "url": "https://paulrberg.com"
-  },
+  "contributors": [
+    {
+      "name": "Tom French",
+      "url": "https://github.com/TomAFrench"
+    },
+    {
+      "name": "Paul Razvan Berg",
+      "url": "https://paulrberg.com"
+    }
+  ],
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
