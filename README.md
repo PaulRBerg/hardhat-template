@@ -36,7 +36,7 @@ $ yarn compile
 Compile the smart contracts and generate TypeChain artifacts:
 
 ```sh
-$ yarn build
+$ yarn typechain
 ```
 
 ### Lint Solidity
