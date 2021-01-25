@@ -1,9 +1,5 @@
-import { Signer } from "@ethersproject/abstract-signer";
-
-export interface Accounts {
-  admin: string;
-}
+import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 
 export interface Signers {
-  admin: Signer;
+  admin: SignerWithAddress;
 }
