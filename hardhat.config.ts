@@ -54,6 +54,9 @@ const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
+      accounts: {
+        mnemonic,
+      },
       chainId: chainIds.hardhat,
     },
     goerli: createTestnetConfig("goerli"),
