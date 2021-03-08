@@ -6,6 +6,9 @@
     "name": "Paul Razvan Berg",
     "url": "https://paulrberg.com"
   },
+  "dependencies": {
+    "solc": "0.8.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
@@ -70,8 +73,5 @@
     "prettier:list-different": "prettier --config .prettierrc --list-different \"**/*.{js,json,md,sol,ts}\"",
     "test": "hardhat test",
     "typechain": "hardhat typechain"
-  },
-  "dependencies": {
-    "solc": "0.8.1"
   }
 }
