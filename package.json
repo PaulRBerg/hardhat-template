@@ -6,9 +6,7 @@
     "name": "Paul Razvan Berg",
     "url": "https://paulrberg.com"
   },
-  "dependencies": {
-    "solc": "0.8.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
