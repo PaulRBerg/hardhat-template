@@ -71,6 +71,14 @@ Generate the code coverage report:
 $ yarn coverage
 ```
 
+### Report Gas
+
+See the gas usage per unit test and average gas per method call:
+
+```sh
+$ REPORT_GAS=true yarn test
+```
+
 ### Clean
 
 Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
