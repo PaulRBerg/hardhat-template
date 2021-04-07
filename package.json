@@ -6,7 +6,9 @@
     "name": "Paul Razvan Berg",
     "url": "https://paulrberg.com"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.0.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
