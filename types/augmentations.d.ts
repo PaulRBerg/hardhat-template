@@ -2,7 +2,7 @@
 import { Fixture } from "ethereum-waffle";
 
 import { Signers } from "./";
-import { Greeter } from "../typechain";
+import { Greeter } from "../typechain/Greeter";
 
 declare module "mocha" {
   export interface Context {
