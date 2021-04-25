@@ -39,15 +39,23 @@ if (!process.env.INFURA_API_KEY) {
   infuraApiKey = process.env.INFURA_API_KEY;
 }
 
+let privateKey: string;
+if (!process.env.PRIVATE_KEY) {
+  throw new Error("Please set your PRIVATE_KEY in a .env file");
+} else {
+  privateKey = process.env.PRIVATE_KEY;
+}
+
 function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig {
   const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
   return {
-    accounts: {
-      count: 10,
-      initialIndex: 0,
-      mnemonic,
-      path: "m/44'/60'/0'/0",
-    },
+    // accounts: {
+    //   count: 10,
+    //   initialIndex: 0,
+    //   mnemonic,
+    //   path: "m/44'/60'/0'/0",
+    // },
+    accounts: [`0x${privateKey}`],
     chainId: chainIds[network],
     url,
   };
@@ -63,9 +71,10 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      accounts: {
-        mnemonic,
-      },
+      // accounts: {
+      //   mnemonic,
+      // },
+      accounts: [`0x${privateKey}`],
       chainId: chainIds.hardhat,
     },
     goerli: createTestnetConfig("goerli"),
