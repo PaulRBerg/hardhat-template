@@ -87,6 +87,20 @@ Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
 $ yarn clean
 ```
 
+### Deploy 
+
+Deploy the contracts to hardhat test network.
+
+```sh
+$ yarn deploy 
+```
+
+Deploy the contracts to a specific network.
+
+```sh
+$ yarn deploy:network ropsten 
+```
+
 ## Syntax Highlighting
 
 If you use VSCode, you can enjoy syntax highlighting for your Solidity code via the

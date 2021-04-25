@@ -71,6 +71,8 @@
     "prettier": "prettier --config .prettierrc --write \"**/*.{js,json,md,sol,ts}\"",
     "prettier:list-different": "prettier --config .prettierrc --list-different \"**/*.{js,json,md,sol,ts}\"",
     "test": "hardhat test",
-    "typechain": "hardhat typechain"
+    "typechain": "hardhat typechain",
+    "deploy": "hardhat run scripts/deploy.ts",
+    "deploy:network": "hardhat run scripts/deploy.ts --network"
   }
 }
