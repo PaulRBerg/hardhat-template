@@ -89,16 +89,16 @@ $ yarn clean
 
 ### Deploy 
 
-Deploy the contracts to hardhat test network.
+Deploy the contracts to Hardhat Network:
 
 ```sh
-$ yarn deploy 
+$ yarn deploy
 ```
 
-Deploy the contracts to a specific network.
+Deploy the contracts to a specific network, such as the Ropsten testnet:
 
 ```sh
-$ yarn deploy:network ropsten 
+$ yarn deploy:network ropsten
 ```
 
 ## Syntax Highlighting
