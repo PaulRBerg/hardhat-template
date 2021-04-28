@@ -87,7 +87,7 @@ Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
 $ yarn clean
 ```
 
-### Deploy 
+### Deploy
 
 Deploy the contracts to Hardhat Network:
 
@@ -109,9 +109,9 @@ compiler version is to add the following fields to your VSCode user settings:
 
 ```json
 {
-  "solidity.compileUsingRemoteVersion": "v0.8.3+commit.8d00100c",
+  "solidity.compileUsingRemoteVersion": "v0.8.4+commit.c7e474f2",
   "solidity.defaultCompiler": "remote"
 }
 ```
 
-Where of course `v0.8.3+commit.8d00100c` can be replaced with any other version.
+Where of course `v0.8.4+commit.c7e474f2` can be replaced with any other version.
