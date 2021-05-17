@@ -9,8 +9,11 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@ethersproject/abi": "^5.1.2",
     "@ethersproject/abstract-signer": "^5.1.0",
     "@ethersproject/bignumber": "^5.1.1",
+    "@ethersproject/bytes": "^5.1.0",
+    "@ethersproject/providers": "^5.1.2",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@typechain/ethers-v5": "^7.0.0",
