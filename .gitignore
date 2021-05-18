@@ -2,6 +2,9 @@
 .coverage_artifacts/
 .coverage_cache/
 .coverage_contracts/
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
 artifacts/
 build/
 cache/
