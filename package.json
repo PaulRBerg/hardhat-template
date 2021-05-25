@@ -14,6 +14,7 @@
     "@ethersproject/abstract-signer": "^5.1.0",
     "@ethersproject/bignumber": "^5.1.1",
     "@ethersproject/bytes": "^5.1.0",
+    "@ethersproject/contracts": "^5.2.0",
     "@ethersproject/providers": "^5.1.2",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
