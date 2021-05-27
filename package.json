@@ -37,7 +37,7 @@
     "fs-extra": "^10.0.0",
     "hardhat": "^2.3.0",
     "hardhat-gas-reporter": "^1.0.4",
-    "husky": "6.0.0",
+    "husky": "^6.0.0",
     "mocha": "^8.4.0",
     "prettier": "^2.3.0",
     "prettier-plugin-solidity": "^1.0.0-beta.10",
@@ -48,7 +48,8 @@
     "ts-generator": "^0.1.1",
     "ts-node": "^9.1.1",
     "typechain": "^5.0.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "lint-staged": "^11.0.0"
   },
   "files": [
     "/contracts"
@@ -84,8 +85,5 @@
     "prettier:check": "prettier --check --config .prettierrc \"**/*.{js,json,md,sol,ts}\"",
     "test": "hardhat test",
     "typechain": "hardhat typechain"
-  },
-  "dependencies": {
-    "lint-staged": "^11.0.0"
   }
 }
