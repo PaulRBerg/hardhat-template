@@ -68,9 +68,6 @@
     ]
   },
   "private": true,
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "clean": "hardhat clean",
     "commit": "git-cz",
