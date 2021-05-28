@@ -38,6 +38,7 @@
     "hardhat": "^2.3.0",
     "hardhat-gas-reporter": "^1.0.4",
     "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "mocha": "^8.4.0",
     "prettier": "^2.3.0",
     "prettier-plugin-solidity": "^1.0.0-beta.10",
@@ -48,8 +49,7 @@
     "ts-generator": "^0.1.1",
     "ts-node": "^9.1.1",
     "typechain": "^5.0.0",
-    "typescript": "^4.2.4",
-    "lint-staged": "^11.0.0"
+    "typescript": "^4.2.4"
   },
   "files": [
     "/contracts"
@@ -62,16 +62,16 @@
     "solidity"
   ],
   "license": "WTFPL",
+  "lint-staged": {
+    "*.{js,json,md,sol,ts}": [
+      "prettier --config ./.prettierrc --write"
+    ]
+  },
+  "private": true,
   "publishConfig": {
     "access": "public"
   },
-  "lint-staged": {
-    "*.{js,json,md,sol,ts}": [
-      "prettier --config .prettierrc --write"
-    ]
-  },
   "scripts": {
-    "postinstall": "husky install",
     "clean": "hardhat clean",
     "commit": "git-cz",
     "compile": "hardhat compile",
@@ -81,8 +81,9 @@
     "lint": "yarn run lint:sol && yarn run lint:ts && yarn run prettier:check",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
-    "prettier": "prettier --config .prettierrc --write \"**/*.{js,json,md,sol,ts}\"",
-    "prettier:check": "prettier --check --config .prettierrc \"**/*.{js,json,md,sol,ts}\"",
+    "postinstall": "husky install",
+    "prettier": "prettier --config ./.prettierrc --write \"**/*.{js,json,md,sol,ts}\"",
+    "prettier:check": "prettier --check --config ./.prettierrc \"**/*.{js,json,md,sol,ts}\"",
     "test": "hardhat test",
     "typechain": "hardhat typechain"
   }
