@@ -62,11 +62,6 @@
     "solidity"
   ],
   "license": "WTFPL",
-  "lint-staged": {
-    "*.{js,json,md,sol,ts}": [
-      "prettier --config ./.prettierrc --write"
-    ]
-  },
   "private": true,
   "scripts": {
     "clean": "hardhat clean",
