@@ -63,6 +63,9 @@
   ],
   "license": "WTFPL",
   "private": true,
+  "resolutions": {
+    "@ethersproject/wallet": "^5.2.0"
+  },
   "scripts": {
     "clean": "hardhat clean",
     "commit": "git-cz",
