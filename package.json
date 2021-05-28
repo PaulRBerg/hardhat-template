@@ -48,7 +48,8 @@
     "ts-generator": "^0.1.1",
     "ts-node": "^9.1.1",
     "typechain": "^5.0.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "lint-staged": "^11.0.0"
   },
   "files": [
     "/contracts"
@@ -64,7 +65,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "lint-staged": {
+    "*.{js,json,md,sol,ts}": [
+      "prettier --config .prettierrc --write"
+    ]
+  },
   "scripts": {
+    "postinstall": "husky install",
     "clean": "hardhat clean",
     "commit": "git-cz",
     "compile": "hardhat compile",
