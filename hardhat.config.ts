@@ -25,18 +25,14 @@ const chainIds = {
 };
 
 // Ensure that we have all the environment variables we need.
-let mnemonic: string;
-if (!process.env.MNEMONIC) {
+const mnemonic = process.env.MNEMONIC;
+if (!mnemonic) {
   throw new Error("Please set your MNEMONIC in a .env file");
-} else {
-  mnemonic = process.env.MNEMONIC;
 }
 
-let infuraApiKey: string;
-if (!process.env.INFURA_API_KEY) {
+const infuraApiKey = process.env.INFURA_API_KEY;
+if (!infuraApiKey) {
   throw new Error("Please set your INFURA_API_KEY in a .env file");
-} else {
-  infuraApiKey = process.env.INFURA_API_KEY;
 }
 
 function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig {
