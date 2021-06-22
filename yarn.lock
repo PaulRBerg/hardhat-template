@@ -1834,29 +1834,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidity-parser/parser@npm:^0.11.0":
-  version: 0.11.1
-  resolution: "@solidity-parser/parser@npm:0.11.1"
-  checksum: 0a172138cffa3de4594f6b74d815c7a1e8f5cc3a89bb72441f05a79d72c312913b0fac0591b19a9d84ccd12a3a52067b5121b6e5023ed5264a516ee50804d830
-  languageName: node
-  linkType: hard
-
-"@solidity-parser/parser@npm:^0.12.0":
-  version: 0.12.2
-  resolution: "@solidity-parser/parser@npm:0.12.2"
-  checksum: 63f0296606e96c74252452bb48a4d3a4a09185413cd259bd6b1e601c9614115bef5afb3aff11d791584772cca622cad53eefc221667a094fb009215fdd265981
-  languageName: node
-  linkType: hard
-
-"@solidity-parser/parser@npm:^0.13.0":
-  version: 0.13.1
-  resolution: "@solidity-parser/parser@npm:0.13.1"
-  dependencies:
-    antlr4ts: ^0.5.0-alpha.4
-  checksum: 4622bc227fdd0039f08d4574f03344ffb38ede15561af768e6c239ac4832bc86c12c594f9dea3a1fcfe7ae83aadb5bca7264a889f9d53b75aef6effe95ff34cf
-  languageName: node
-  linkType: hard
-
 "@solidity-parser/parser@npm:^0.13.2":
   version: 0.13.2
   resolution: "@solidity-parser/parser@npm:0.13.2"

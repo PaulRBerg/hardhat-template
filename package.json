@@ -64,7 +64,8 @@
   "license": "WTFPL",
   "private": true,
   "resolutions": {
-    "@ethersproject/wallet": "^5.2.0"
+    "@ethersproject/wallet": "^5.2.0",
+    "@solidity-parser/parser": "^0.13.2"
   },
   "scripts": {
     "clean": "hardhat clean",
