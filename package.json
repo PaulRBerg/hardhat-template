@@ -60,7 +60,6 @@
     "smart-contracts",
     "solidity"
   ],
-  "license": "WTFPL",
   "private": true,
   "resolutions": {
     "@ethersproject/abi": "^5.4.0",
