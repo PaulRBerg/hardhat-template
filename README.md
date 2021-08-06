@@ -17,10 +17,13 @@ template" button at the top of the page.
 
 ### Pre Requisites
 
-Before running any command, make sure to install dependencies:
+Before running any command, you need to create a `.env` file and set a BIP-39 compatible mnemonic as an environment
+variable. Follow the example in `.env.example`. If you don't already have a mnemonic, use this [website](https://iancoleman.io/bip39/) to generate one.
+
+Then, proceed with installing dependencies:
 
 ```sh
-$ yarn install
+yarn install
 ```
 
 ### Compile
