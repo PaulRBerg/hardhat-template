@@ -69,8 +69,7 @@
     "commit": "git-cz",
     "compile": "hardhat compile",
     "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"./test/**/*.ts\"",
-    "deploy": "hardhat run scripts/deploy.ts",
-    "deploy:network": "hardhat run scripts/deploy.ts --network",
+    "deploy": "hardhat deploy:Greeter --greeting",
     "lint": "yarn run lint:sol && yarn run lint:ts && yarn run prettier:check",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
@@ -78,6 +77,6 @@
     "prettier": "prettier --config ./.prettierrc --write \"**/*.{js,json,md,sol,ts}\"",
     "prettier:check": "prettier --check --config ./.prettierrc \"**/*.{js,json,md,sol,ts}\"",
     "test": "hardhat test",
-    "typechain": "hardhat typechain"
+    "typechain": "TS_NODE_TRANSPILE_ONLY hardhat typechain"
   }
 }

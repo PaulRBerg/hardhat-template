@@ -5,6 +5,7 @@ import "solidity-coverage";
 
 import "./tasks/accounts";
 import "./tasks/clean";
+import "./tasks/deployers";
 
 import { resolve } from "path";
 
@@ -25,12 +26,12 @@ const chainIds = {
 };
 
 // Ensure that we have all the environment variables we need.
-const mnemonic = process.env.MNEMONIC;
+const mnemonic: string | undefined = process.env.MNEMONIC;
 if (!mnemonic) {
   throw new Error("Please set your MNEMONIC in a .env file");
 }
 
-const infuraApiKey = process.env.INFURA_API_KEY;
+const infuraApiKey: string | undefined = process.env.INFURA_API_KEY;
 if (!infuraApiKey) {
   throw new Error("Please set your INFURA_API_KEY in a .env file");
 }
@@ -82,7 +83,7 @@ const config: HardhatUserConfig = {
         // https://github.com/paulrberg/solidity-template/issues/31
         bytecodeHash: "none",
       },
-      // You should disable the optimizer when debugging
+      // Disable the optimizer when debugging
       // https://hardhat.org/hardhat-network/#solidity-optimizer-support
       optimizer: {
         enabled: true,
