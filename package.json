@@ -27,6 +27,7 @@
     "@typescript-eslint/parser": "^4.29.0",
     "chai": "^4.3.4",
     "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
@@ -77,6 +78,6 @@
     "prettier": "prettier --config ./.prettierrc --write \"**/*.{js,json,md,sol,ts}\"",
     "prettier:check": "prettier --check --config ./.prettierrc \"**/*.{js,json,md,sol,ts}\"",
     "test": "hardhat test",
-    "typechain": "TS_NODE_TRANSPILE_ONLY hardhat typechain"
+    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
   }
 }
