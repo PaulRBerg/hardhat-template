@@ -1,7 +1,6 @@
-// eslint-disable @typescript-eslint/no-explicit-any
+import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 import { Fixture } from "ethereum-waffle";
 
-import { Signers } from "./";
 import { Greeter } from "../typechain/Greeter";
 
 declare module "mocha" {
@@ -10,4 +9,8 @@ declare module "mocha" {
     loadFixture: <T>(fixture: Fixture<T>) => Promise<T>;
     signers: Signers;
   }
+}
+
+export interface Signers {
+  admin: SignerWithAddress;
 }

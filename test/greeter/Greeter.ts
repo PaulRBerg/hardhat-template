@@ -2,7 +2,7 @@ import hre from "hardhat";
 import { Artifact } from "hardhat/types";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 
-import { Greeter } from "../typechain/Greeter";
+import { Greeter } from "../../typechain/Greeter";
 import { Signers } from "../types";
 import { shouldBehaveLikeGreeter } from "./Greeter.behavior";
 
