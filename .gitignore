@@ -3,8 +3,11 @@
 .coverage_cache/
 .coverage_contracts/
 .yarn/*
+!.yarn/patches
 !.yarn/releases
 !.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 artifacts/
 build/
 cache/
