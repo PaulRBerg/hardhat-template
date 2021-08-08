@@ -12,15 +12,7 @@
     "strict": true,
     "target": "es6"
   },
-  "exclude": ["artifacts", "node_modules"],
+  "exclude": ["node_modules"],
   "files": ["./hardhat.config.ts"],
-  "include": [
-    "artifacts/**/*",
-    "artifacts/**/*.json",
-    "scripts/**/*",
-    "tasks/**/*",
-    "test/**/*",
-    "typechain/**/*",
-    "types/**/*"
-  ]
+  "include": ["tasks/**/*.ts", "test/**/*.ts", "typechain/**/*.d.ts", "typechain/**/*.ts"]
 }
