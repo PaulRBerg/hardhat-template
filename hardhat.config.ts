@@ -63,6 +63,8 @@ const config: HardhatUserConfig = {
         mnemonic,
       },
       chainId: chainIds.hardhat,
+      // See https://github.com/sc-forks/solidity-coverage/issues/652
+      hardfork: process.env.CODE_COVERAGE ? "berlin" : "london",
     },
     goerli: getChainConfig("goerli"),
     kovan: getChainConfig("kovan"),
