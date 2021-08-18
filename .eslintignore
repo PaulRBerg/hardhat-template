@@ -1,4 +1,5 @@
-# folders
+# directories
+.yarn/
 artifacts/
 build/
 cache/
@@ -9,5 +10,12 @@ node_modules/
 typechain/
 
 # files
+*.env
+*.log
+*.tsbuildinfo
+.pnp.*
 .solcover.js
 coverage.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

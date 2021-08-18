@@ -1,5 +1,3 @@
-# folders
-.yarn/
-build/
-dist/
+# directories
+artifacts/
 node_modules/
