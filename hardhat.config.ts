@@ -1,3 +1,5 @@
+import path from "path";
+import fs from "fs";
 import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
@@ -5,7 +7,6 @@ import "solidity-coverage";
 
 import "./tasks/accounts";
 import "./tasks/clean";
-import "./tasks/deployers";
 
 import { resolve } from "path";
 
@@ -24,6 +25,20 @@ const chainIds = {
   rinkeby: 4,
   ropsten: 3,
 };
+
+const SKIP_LOAD = process.env.SKIP_LOAD === "true";
+
+// Prevent to load scripts before compilation and typechain
+if (!SKIP_LOAD) {
+  ["deployers"].forEach(folder => {
+    const tasksPath = path.join(__dirname, "tasks", folder);
+    fs.readdirSync(tasksPath)
+      .filter(pth => pth.includes(".ts"))
+      .forEach(task => {
+        require(`${tasksPath}/${task}`);
+      });
+  });
+}
 
 // Ensure that we have all the environment variables we need.
 const mnemonic: string | undefined = process.env.MNEMONIC;
