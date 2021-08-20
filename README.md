@@ -98,6 +98,12 @@ Deploy the contracts to Hardhat Network:
 $ yarn deploy --greeting "Bonjour, le monde!"
 ```
 
+Deploy the contracts to Rinkeby Network and Verify deployed contract on etherscan
+
+```sh
+$ yarn deploy --greeting "Bonjour, le monde!" --network rinkeby --verify
+```
+
 ## Syntax Highlighting
 
 If you use VSCode, you can enjoy syntax highlighting for your Solidity code via the

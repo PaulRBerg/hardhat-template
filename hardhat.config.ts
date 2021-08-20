@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs";
 import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-etherscan";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
@@ -27,6 +28,7 @@ const chainIds = {
 };
 
 const SKIP_LOAD = process.env.SKIP_LOAD === "true";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
 
 // Prevent to load scripts before compilation and typechain
 if (!SKIP_LOAD) {
@@ -107,6 +109,9 @@ const config: HardhatUserConfig = {
         runs: 800,
       },
     },
+  },
+  etherscan: {
+    apiKey: ETHERSCAN_API_KEY,
   },
   typechain: {
     outDir: "typechain",

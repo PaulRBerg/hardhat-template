@@ -575,7 +575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/address@npm:5.4.0, @ethersproject/address@npm:>=5.0.0-beta.128, @ethersproject/address@npm:^5.0.4, @ethersproject/address@npm:^5.4.0":
+"@ethersproject/address@npm:5.4.0, @ethersproject/address@npm:>=5.0.0-beta.128, @ethersproject/address@npm:^5.0.2, @ethersproject/address@npm:^5.0.4, @ethersproject/address@npm:^5.4.0":
   version: 5.4.0
   resolution: "@ethersproject/address@npm:5.4.0"
   dependencies:
@@ -1121,6 +1121,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nomiclabs/hardhat-etherscan@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@nomiclabs/hardhat-etherscan@npm:2.1.5"
+  dependencies:
+    "@ethersproject/abi": ^5.1.2
+    "@ethersproject/address": ^5.0.2
+    cbor: ^5.0.2
+    debug: ^4.1.1
+    fs-extra: ^7.0.1
+    node-fetch: ^2.6.0
+    semver: ^6.3.0
+  peerDependencies:
+    hardhat: ^2.0.4
+  checksum: 6d8236f55413ba87b3e9c4eba3377583f7fb93deed3c61691c7131500fa7b4caa3ccf5aca30b5ee4992db13a736fead490d47c46bb88432fe3e0a092d5a38894
+  languageName: node
+  linkType: hard
+
 "@nomiclabs/hardhat-waffle@npm:^2.0.1":
   version: 2.0.1
   resolution: "@nomiclabs/hardhat-waffle@npm:2.0.1"
@@ -1159,6 +1176,7 @@ __metadata:
     "@ethersproject/bytes": ^5.4.0
     "@ethersproject/providers": ^5.4.3
     "@nomiclabs/hardhat-ethers": ^2.0.2
+    "@nomiclabs/hardhat-etherscan": ^2.1.5
     "@nomiclabs/hardhat-waffle": ^2.0.1
     "@typechain/ethers-v5": ^7.0.1
     "@typechain/hardhat": ^2.3.0
@@ -3166,7 +3184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bignumber.js@npm:^9.0.0":
+"bignumber.js@npm:^9.0.0, bignumber.js@npm:^9.0.1":
   version: 9.0.1
   resolution: "bignumber.js@npm:9.0.1"
   checksum: 6e72f6069d9db32fc8d27561164de9f811b15f9144be61f323d8b36150a239eea50c92e20ba38af2ba5e717af10b8ef12db8f9948fe2ff02bf17ede5239d15d3
@@ -3658,6 +3676,16 @@ __metadata:
   version: 0.12.0
   resolution: "caseless@npm:0.12.0"
   checksum: b43bd4c440aa1e8ee6baefee8063b4850fd0d7b378f6aabc796c9ec8cb26d27fb30b46885350777d9bd079c5256c0e1329ad0dc7c2817e0bb466810ebb353751
+  languageName: node
+  linkType: hard
+
+"cbor@npm:^5.0.2":
+  version: 5.2.0
+  resolution: "cbor@npm:5.2.0"
+  dependencies:
+    bignumber.js: ^9.0.1
+    nofilter: ^1.0.4
+  checksum: b3c39dae64370f361526dbec88f51d0f1b47027224cdd21dbd64c228f0fe7eaa945932d349ec5324068a6c6dcdbb1e3b46242852524fd53c526d14cb60514bdc
   languageName: node
   linkType: hard
 
@@ -10323,6 +10351,13 @@ fsevents@~2.1.1:
   bin:
     node-gyp: bin/node-gyp.js
   checksum: 4fbd99af8a0ac1e0c834a693392d23696e945e604ede111c528eb8d4761dfb22492dbd33c4e3730b8aab99a9f156e9e6418ce489f88cbbfc51e0e00eadd51bc8
+  languageName: node
+  linkType: hard
+
+"nofilter@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "nofilter@npm:1.0.4"
+  checksum: 54d864f745de5c3312994e880cf2d4f55e34830d6adc8275dce3731507ca380d21040336e4a277a4901551c07f04c452fbeffd57fad1dc8f68a2943eaf894a04
   languageName: node
   linkType: hard
 
