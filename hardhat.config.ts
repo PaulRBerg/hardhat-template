@@ -32,12 +32,14 @@ if (!mnemonic) {
 }
 
 const infuraApiKey: string | undefined = process.env.INFURA_API_KEY;
-if (!infuraApiKey) {
-  throw new Error("Please set your INFURA_API_KEY in a .env file");
+const alchemyApiKey: string | undefined = process.env.ALCHEMY_API_KEY;
+if (!infuraApiKey && !alchemyApiKey) {
+  throw new Error("Please set your INFURA_API_KEY or ALCHEMY_API_KEY in a .env file");
 }
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
-  const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
+  const provider: string = alchemyApiKey ? ".alchemyapi.io/v2/" : ".infura.io/v3/";
+  const url: string = "https://" + network + provider + infuraApiKey;
   return {
     accounts: {
       count: 10,
