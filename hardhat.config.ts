@@ -37,11 +37,6 @@ if (!infuraApiKey) {
   throw new Error("Please set your INFURA_API_KEY in a .env file");
 }
 
-const etherscanApiKey: string | undefined = process.env.ETHERSCAN_API_KEY;
-if (!etherscanApiKey) {
-  throw new Error("Please set your ETHERSCAN_API_KEY in a .env file");
-}
-
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
   const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
   return {
@@ -60,7 +55,7 @@ const config: HardhatUserConfig = {
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: etherscanApiKey,
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
   gasReporter: {
     currency: "USD",
