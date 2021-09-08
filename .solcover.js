@@ -1,11 +1,5 @@
 const shell = require("shelljs");
 
-// The environment variables are loaded in hardhat.config.ts
-const mnemonic = process.env.MNEMONIC;
-if (!mnemonic) {
-  throw new Error("Please set your MNEMONIC in a .env file");
-}
-
 module.exports = {
   istanbulReporter: ["html", "lcov"],
   onCompileComplete: async function (_config) {
@@ -17,7 +11,7 @@ module.exports = {
     shell.rm("-rf", "./typechain");
   },
   providerOptions: {
-    mnemonic,
+    mnemonic: process.env.MNEMONIC,
   },
   skipFiles: ["mocks", "test"],
 };
