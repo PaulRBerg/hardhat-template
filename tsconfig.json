@@ -6,7 +6,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "outDir": "dist",
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
