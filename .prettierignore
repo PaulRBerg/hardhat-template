@@ -1,5 +1,8 @@
 # directories
 .yarn/
+**/.coverage_artifacts
+**/.coverage_cache
+**/.coverage_contracts
 **/artifacts
 **/build
 **/cache
