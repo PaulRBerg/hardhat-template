@@ -14,7 +14,6 @@
 # files
 *.env
 *.log
-*.tsbuildinfo
 .pnp.*
 coverage.json
 npm-debug.log*
