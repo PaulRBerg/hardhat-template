@@ -1,6 +1,6 @@
 {
   "name": "@paulrberg/solidity-template",
-  "description": "Setup for writing Solidity smart contracts",
+  "description": "Template for writing Solidity smart contracts",
   "version": "1.0.0",
   "author": {
     "name": "Paul Razvan Berg",
