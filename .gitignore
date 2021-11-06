@@ -14,7 +14,6 @@
 **/.coverage_contracts
 **/dist
 **/node_modules
-**/types
 
 # files
 *.env
@@ -24,3 +23,9 @@ coverage.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# types
+src/types/*
+!src/types/common.ts
+!src/types/Greeter.ts
+!src/types/factories/Greeter__factory.ts
