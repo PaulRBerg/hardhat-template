@@ -112,3 +112,14 @@ compiler version is to add the following fields to your VSCode user settings:
 ```
 
 Where of course `v0.8.4+commit.c7e474f2` can be replaced with any other version.
+
+## Contributing 
+
+Feel free to dive in! Open an issue or submit PRs.
+
+### Contributors 
+
+Thanks to all the people who contribute.
+<a href="https://github.com/paulrberg/solidity-template/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=paulrberg/solidity-template"/>
+</a>
