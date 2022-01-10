@@ -1,7 +1,7 @@
 const shell = require("shelljs");
 
 module.exports = {
-  istanbulReporter: ["html", "lcov"],
+  istanbulReporter: ["cobertura"],
   providerOptions: {
     mnemonic: process.env.MNEMONIC,
   },

@@ -1,0 +1,41 @@
+name: "CI"
+
+on:
+  pull_request:
+    branches:
+      - "main"
+  push:
+    branches:
+      - "main"
+
+jobs:
+  integration:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Check out the repo"
+        uses: "actions/checkout@v2"
+
+      - name: "Install Node.js"
+        uses: "actions/setup-node@v2"
+        with:
+          cache: "yarn"
+          node-version: "16"
+
+      - name: "Install the dependencies"
+        run: "yarn install --immutable"
+
+      - name: "Lint the code"
+        run: "yarn lint"
+
+      - name: "Compile the contracts and generate TypeChain bindings"
+        run: "yarn generate:types"
+
+      - name: "Test the contracts and run test coverage"
+        run: "yarn coverage"
+
+      - name: cobertura-report
+        uses: 5monkeys/cobertura-action@v12
+        with:
+          path: coverage/cobertura-coverage.xml
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          minimum_coverage: 75
