@@ -44,7 +44,7 @@
     "pinst": "^2.1.6",
     "prettier": "^2.5.0",
     "prettier-plugin-solidity": "^1.0.0-beta.19",
-    "shelljs": "^0.8.4",
+    "shelljs": "^0.8.5",
     "shx": "^0.3.3",
     "solhint": "^3.3.6",
     "solhint-plugin-prettier": "^0.0.5",
