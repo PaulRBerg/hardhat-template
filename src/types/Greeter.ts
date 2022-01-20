@@ -17,6 +17,7 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
 
 export interface GreeterInterface extends utils.Interface {
+  contractName: "Greeter";
   functions: {
     "greet()": FunctionFragment;
     "greeting()": FunctionFragment;
@@ -44,6 +45,7 @@ export interface GreeterInterface extends utils.Interface {
 }
 
 export interface Greeter extends BaseContract {
+  contractName: "Greeter";
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
