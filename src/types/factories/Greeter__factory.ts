@@ -88,6 +88,7 @@ export class Greeter__factory extends ContractFactory {
     } else {
       super(_abi, _bytecode, args[0]);
     }
+    this.contractName = "Greeter";
   }
 
   deploy(
@@ -108,6 +109,8 @@ export class Greeter__factory extends ContractFactory {
   connect(signer: Signer): Greeter__factory {
     return super.connect(signer) as Greeter__factory;
   }
+  static readonly contractName: "Greeter";
+  public readonly contractName: "Greeter";
   static readonly bytecode = _bytecode;
   static readonly abi = _abi;
   static createInterface(): GreeterInterface {
