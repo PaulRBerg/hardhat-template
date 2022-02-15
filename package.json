@@ -17,6 +17,7 @@
     "@ethersproject/providers": "^5.5.3",
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^3.0.0",
     "@typechain/ethers-v5": "^9.0.0",
     "@typechain/hardhat": "^4.0.0",
     "@types/chai": "^4.3.0",

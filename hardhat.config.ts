@@ -1,5 +1,7 @@
 import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-etherscan"
 import "@typechain/hardhat";
+
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 
@@ -88,6 +90,20 @@ const config: HardhatUserConfig = {
         runs: 800,
       },
     },
+  },
+  etherscan: {
+    apiKey: {
+      mainnet: process.env.ETHERSCAN_APIKEY,
+      goerli: process.env.ETHERSCAN_APIKEY,
+      kovan: process.env.ETHERSCAN_APIKEY,
+      rinkeby: process.env.ETHERSCAN_APIKEY,
+      ropsten: process.env.ETHERSCAN_APIKEY,
+      polygon: process.env.POLYGONSCAN_APIKEY,
+      bsc: process.env.BSCSCAN_APIKEY,
+      arbitrumOne: process.env.ARBSCAN_APIKEY,
+      arbitrumTestnet: process.env.ARBSCAN_APIKEY,
+      avalanche: process.env.SNOWTRACE_APIKEY,
+      optimisticEthereum: process.env.OPTIMISM_APIKEY
   },
   typechain: {
     outDir: "src/types",
