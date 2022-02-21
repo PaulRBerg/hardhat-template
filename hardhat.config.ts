@@ -1,7 +1,6 @@
 import "@nomiclabs/hardhat-waffle";
-import "@nomiclabs/hardhat-etherscan"
+import "@nomiclabs/hardhat-etherscan";
 import "@typechain/hardhat";
-
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 
@@ -51,6 +50,21 @@ function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
+  etherscan: {
+    apiKey: {
+      arbitrumOne: process.env.ARBSCAN_API_KEY,
+      arbitrumTestnet: process.env.ARBSCAN_API_KEY,
+      avalanche: process.env.SNOWTRACE_API_KEY,
+      bsc: process.env.BSCSCAN_API_KEY,
+      goerli: process.env.ETHERSCAN_API_KEY,
+      kovan: process.env.ETHERSCAN_API_KEY,
+      mainnet: process.env.ETHERSCAN_API_KEY,
+      optimisticEthereum: process.env.OPTIMISM_API_KEY,
+      polygon: process.env.POLYGONSCAN_API_KEY,
+      rinkeby: process.env.ETHERSCAN_API_KEY,
+      ropsten: process.env.ETHERSCAN_API_KEY,
+    },
+  },
   gasReporter: {
     currency: "USD",
     enabled: process.env.REPORT_GAS ? true : false,
@@ -90,20 +104,6 @@ const config: HardhatUserConfig = {
         runs: 800,
       },
     },
-  },
-  etherscan: {
-    apiKey: {
-      mainnet: process.env.ETHERSCAN_APIKEY,
-      goerli: process.env.ETHERSCAN_APIKEY,
-      kovan: process.env.ETHERSCAN_APIKEY,
-      rinkeby: process.env.ETHERSCAN_APIKEY,
-      ropsten: process.env.ETHERSCAN_APIKEY,
-      polygon: process.env.POLYGONSCAN_APIKEY,
-      bsc: process.env.BSCSCAN_APIKEY,
-      arbitrumOne: process.env.ARBSCAN_APIKEY,
-      arbitrumTestnet: process.env.ARBSCAN_APIKEY,
-      avalanche: process.env.SNOWTRACE_APIKEY,
-      optimisticEthereum: process.env.OPTIMISM_APIKEY
   },
   typechain: {
     outDir: "src/types",
