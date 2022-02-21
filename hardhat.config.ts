@@ -15,15 +15,6 @@ import { NetworkUserConfig } from "hardhat/types";
 
 dotenvConfig({ path: resolve(__dirname, "./.env") });
 
-const chainIds = {
-  goerli: 5,
-  hardhat: 31337,
-  kovan: 42,
-  mainnet: 1,
-  rinkeby: 4,
-  ropsten: 3,
-};
-
 // Ensure that we have all the environment variables we need.
 const mnemonic: string | undefined = process.env.MNEMONIC;
 if (!mnemonic) {
@@ -34,6 +25,20 @@ const infuraApiKey: string | undefined = process.env.INFURA_API_KEY;
 if (!infuraApiKey) {
   throw new Error("Please set your INFURA_API_KEY in a .env file");
 }
+
+const chainIds = {
+  arbitrumOne: 42161,
+  avalanche: 43114,
+  bsc: 56,
+  goerli: 5,
+  hardhat: 31337,
+  kovan: 42,
+  mainnet: 1,
+  optimism: 10,
+  polygon: 137,
+  rinkeby: 4,
+  ropsten: 3,
+};
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
   const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
@@ -53,7 +58,6 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       arbitrumOne: process.env.ARBSCAN_API_KEY,
-      arbitrumTestnet: process.env.ARBSCAN_API_KEY,
       avalanche: process.env.SNOWTRACE_API_KEY,
       bsc: process.env.BSCSCAN_API_KEY,
       goerli: process.env.ETHERSCAN_API_KEY,
@@ -78,8 +82,14 @@ const config: HardhatUserConfig = {
       },
       chainId: chainIds.hardhat,
     },
+    arbitrumOne: getChainConfig("arbitrumOne"),
+    avalanche: getChainConfig("avalanche"),
+    bsc: getChainConfig("bsc"),
     goerli: getChainConfig("goerli"),
     kovan: getChainConfig("kovan"),
+    mainnet: getChainConfig("mainnet"),
+    optimism: getChainConfig("optimism"),
+    polygon: getChainConfig("polygon"),
     rinkeby: getChainConfig("rinkeby"),
     ropsten: getChainConfig("ropsten"),
   },
