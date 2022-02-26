@@ -82,6 +82,9 @@ const config: HardhatUserConfig = {
       },
       chainId: chainIds.hardhat,
     },
+    "truffle-dashboard": {
+      url: "http://localhost:24012/rpc",
+    },
     arbitrumOne: getChainConfig("arbitrumOne"),
     avalanche: getChainConfig("avalanche"),
     bsc: getChainConfig("bsc"),

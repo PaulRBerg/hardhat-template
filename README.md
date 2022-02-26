@@ -98,6 +98,17 @@ Deploy the contracts to Hardhat Network:
 $ yarn deploy --greeting "Bonjour, le monde!"
 ```
 
+### Dashboard
+
+You can use Truffle Dashboard with Hardhat by simply starting Truffle Dashboard in a separate terminal window
+
+```sh
+npm install -g truffle
+truffle dashboard
+```
+
+With this setup you can run the command `hardhat deploy --network truffle-dashboard` and the request will be forwarded to the Truffle Dashboard for you to inspect and process them.
+
 ## Syntax Highlighting
 
 If you use VSCode, you can enjoy syntax highlighting for your Solidity code via the
