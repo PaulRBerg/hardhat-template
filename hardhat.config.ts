@@ -41,7 +41,7 @@ const chainIds = {
 };
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
-  const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
+  const url: string = "wss://" + network + ".infura.io/ws/v3/" + infuraApiKey;
   return {
     accounts: {
       count: 10,
