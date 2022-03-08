@@ -30,14 +30,11 @@ const chainIds = {
   arbitrumOne: 42161,
   avalanche: 43114,
   bsc: 56,
-  goerli: 5,
   hardhat: 31337,
-  kovan: 42,
   mainnet: 1,
   optimism: 10,
   polygon: 137,
   rinkeby: 4,
-  ropsten: 3,
 };
 
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
@@ -60,13 +57,10 @@ const config: HardhatUserConfig = {
       arbitrumOne: process.env.ARBSCAN_API_KEY,
       avalanche: process.env.SNOWTRACE_API_KEY,
       bsc: process.env.BSCSCAN_API_KEY,
-      goerli: process.env.ETHERSCAN_API_KEY,
-      kovan: process.env.ETHERSCAN_API_KEY,
       mainnet: process.env.ETHERSCAN_API_KEY,
       optimisticEthereum: process.env.OPTIMISM_API_KEY,
       polygon: process.env.POLYGONSCAN_API_KEY,
       rinkeby: process.env.ETHERSCAN_API_KEY,
-      ropsten: process.env.ETHERSCAN_API_KEY,
     },
   },
   gasReporter: {
@@ -85,13 +79,10 @@ const config: HardhatUserConfig = {
     arbitrumOne: getChainConfig("arbitrumOne"),
     avalanche: getChainConfig("avalanche"),
     bsc: getChainConfig("bsc"),
-    goerli: getChainConfig("goerli"),
-    kovan: getChainConfig("kovan"),
     mainnet: getChainConfig("mainnet"),
     optimism: getChainConfig("optimism"),
     polygon: getChainConfig("polygon"),
     rinkeby: getChainConfig("rinkeby"),
-    ropsten: getChainConfig("ropsten"),
   },
   paths: {
     artifacts: "./artifacts",
