@@ -1,5 +1,5 @@
 {
-  "name": "@paulrberg/solidity-template",
+  "name": "@prb/solidity-template",
   "description": "Template for writing Solidity smart contracts",
   "version": "1.0.0",
   "author": {
