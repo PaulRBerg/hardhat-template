@@ -27,7 +27,7 @@ if (!infuraApiKey) {
 }
 
 const chainIds = {
-  arbitrumOne: 42161,
+  arbitrum: 42161,
   avalanche: 43114,
   bsc: 56,
   hardhat: 31337,
@@ -76,7 +76,7 @@ const config: HardhatUserConfig = {
       },
       chainId: chainIds.hardhat,
     },
-    arbitrumOne: getChainConfig("arbitrumOne"),
+    arbitrum: getChainConfig("arbitrum"),
     avalanche: getChainConfig("avalanche"),
     bsc: getChainConfig("bsc"),
     mainnet: getChainConfig("mainnet"),
