@@ -65,6 +65,7 @@
     "smart-contracts",
     "solidity"
   ],
+  "packageManager": "yarn@3.2.0",
   "publishConfig": {
     "access": "public"
   },
