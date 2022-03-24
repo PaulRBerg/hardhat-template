@@ -25,12 +25,12 @@ if (!infuraApiKey) {
 }
 
 const chainIds = {
-  arbitrum: 42161,
+  "arbitrum-mainnet": 42161,
   avalanche: 43114,
   bsc: 56,
   hardhat: 31337,
   mainnet: 1,
-  optimism: 10,
+  "optimism-mainnet": 10,
   "polygon-mainnet": 137,
   "polygon-mumbai": 80001,
   rinkeby: 4,
@@ -86,11 +86,11 @@ const config: HardhatUserConfig = {
       },
       chainId: chainIds.hardhat,
     },
-    arbitrum: getChainConfig("arbitrum"),
+    arbitrum: getChainConfig("arbitrum-mainnet"),
     avalanche: getChainConfig("avalanche"),
     bsc: getChainConfig("bsc"),
     mainnet: getChainConfig("mainnet"),
-    optimism: getChainConfig("optimism"),
+    optimism: getChainConfig("optimism-mainnet"),
     "polygon-mainnet": getChainConfig("polygon-mainnet"),
     "polygon-mumbai": getChainConfig("polygon-mumbai"),
     rinkeby: getChainConfig("rinkeby"),
