@@ -100,15 +100,4 @@ $ yarn deploy --greeting "Bonjour, le monde!"
 
 ## Syntax Highlighting
 
-If you use VSCode, you can enjoy syntax highlighting for your Solidity code via the
-[vscode-solidity](https://github.com/juanfranblanco/vscode-solidity) extension. The recommended approach to set the
-compiler version is to add the following fields to your VSCode user settings:
-
-```json
-{
-  "solidity.compileUsingRemoteVersion": "v0.8.13+commit.abaa5c0e",
-  "solidity.defaultCompiler": "remote"
-}
-```
-
-Where `v0.8.13+commit.abaa5c0e` can be replaced with your version of choice.
+If you use VSCode, you can enjoy syntax highlighting for your Solidity code via the [hardhat-vscode](https://github.com/NomicFoundation/hardhat-vscode) extension.
