@@ -7,7 +7,6 @@
     "url": "https://github.com/paulrberg"
   },
   "devDependencies": {
-    "@codechecks/client": "^0.1.12",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@ethersproject/abi": "^5.6.0",
