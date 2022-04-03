@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": {
     "name": "Paul Razvan Berg",
-    "url": "https://paulrberg.com"
+    "url": "https://github.com/paulrberg"
   },
   "devDependencies": {
     "@codechecks/client": "^0.1.12",
