@@ -23,7 +23,7 @@ variable. Follow the example in `.env.example`. If you don't already have a mnem
 Then, proceed with installing dependencies:
 
 ```sh
-yarn install
+$ yarn install
 ```
 
 ### Compile
