@@ -3,6 +3,7 @@ import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
 import { config as dotenvConfig } from "dotenv";
 import "hardhat-gas-reporter";
+import "hardhat-watcher";
 import { HardhatUserConfig } from "hardhat/config";
 import { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
@@ -120,6 +121,16 @@ const config: HardhatUserConfig = {
   typechain: {
     outDir: "src/types",
     target: "ethers-v5",
+  },
+  watcher: {
+    test: {
+      files: ["./contracts", "./test"],
+      tasks: [
+        { command: "compile", params: { quiet: true } },
+        { command: "typechain", params: { quiet: true } },
+        { command: "test", params: { noCompile: true } },
+      ],
+    },
   },
 };
 
