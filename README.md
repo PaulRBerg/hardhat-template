@@ -66,6 +66,14 @@ Run the Mocha tests:
 $ yarn test
 ```
 
+### Test with watch
+
+Watches for changes while running the tests:
+
+```sh
+$ yarn test:watch
+```
+
 ### Coverage
 
 Generate the code coverage report:
