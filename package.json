@@ -70,10 +70,10 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "shx rm -rf ./artifacts ./cache ./coverage ./src/types ./coverage.json",
+    "clean": "shx rm -rf ./artifacts ./cache ./coverage ./src/types ./coverage.json && yarn typechain",
     "commit": "git-cz",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
-    "coverage": "yarn typechain && hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",
+    "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",
     "deploy": "hardhat deploy:Greeter",
     "lint": "yarn lint:sol && yarn lint:ts && yarn prettier:check",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
