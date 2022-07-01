@@ -10,8 +10,7 @@ My favorite setup for writing Solidity smart contracts.
 - [Solcover](https://github.com/sc-forks/solidity-coverage): code coverage
 - [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code formatter
 
-This is a GitHub template, which means you can reuse it as many times as you want. You can do that by clicking the "Use this
-template" button at the top of the page.
+This repo is a GitHub template, so to start using it, click the "Use this template" button at the top of the page.
 
 ## Usage
 
@@ -100,7 +99,7 @@ $ yarn deploy --greeting "Bonjour, le monde!"
 
 ## Syntax Highlighting
 
-If you use VSCode, you can enjoy syntax highlighting for your Solidity code via the [hardhat-vscode](https://github.com/NomicFoundation/hardhat-vscode) extension.
+If you use VSCode, you can get Solidity syntax highlighting via the [vscode-solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) extension.
 
 ## Caveats
 
@@ -109,3 +108,7 @@ If you use VSCode, you can enjoy syntax highlighting for your Solidity code via 
 If you can't get the [Waffle matchers](https://ethereum-waffle.readthedocs.io/en/latest/matchers.html) to work, try to
 make your `ethers` package version match the version used by the `@ethereum-waffle/chai` package. Seem
 [#111](https://github.com/paulrberg/solidity-template/issues/111) for more details.
+
+## License
+
+[Unlicense](./LICENSE.md)
