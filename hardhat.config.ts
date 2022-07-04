@@ -13,17 +13,6 @@ import "./tasks/deploy";
 
 dotenvConfig({ path: resolve(__dirname, "./.env") });
 
-// Ensure that we have all the environment variables we need.
-const mnemonic: string | undefined = process.env.MNEMONIC;
-if (!mnemonic) {
-  throw new Error("Please set your MNEMONIC in a .env file");
-}
-
-const infuraApiKey: string | undefined = process.env.INFURA_API_KEY;
-if (!infuraApiKey) {
-  throw new Error("Please set your INFURA_API_KEY in a .env file");
-}
-
 const chainIds = {
   "arbitrum-mainnet": 42161,
   avalanche: 43114,
@@ -36,7 +25,7 @@ const chainIds = {
   rinkeby: 4,
 };
 
-function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
+function getChainConfig(chain: keyof typeof chainIds, mnemonic: string, infuraApiKey: string): NetworkUserConfig {
   let jsonRpcUrl: string;
   switch (chain) {
     case "avalanche":
@@ -79,22 +68,6 @@ const config: HardhatUserConfig = {
     excludeContracts: [],
     src: "./contracts",
   },
-  networks: {
-    hardhat: {
-      accounts: {
-        mnemonic,
-      },
-      chainId: chainIds.hardhat,
-    },
-    arbitrum: getChainConfig("arbitrum-mainnet"),
-    avalanche: getChainConfig("avalanche"),
-    bsc: getChainConfig("bsc"),
-    mainnet: getChainConfig("mainnet"),
-    optimism: getChainConfig("optimism-mainnet"),
-    "polygon-mainnet": getChainConfig("polygon-mainnet"),
-    "polygon-mumbai": getChainConfig("polygon-mumbai"),
-    rinkeby: getChainConfig("rinkeby"),
-  },
   paths: {
     artifacts: "./artifacts",
     cache: "./cache",
@@ -122,5 +95,35 @@ const config: HardhatUserConfig = {
     target: "ethers-v5",
   },
 };
+
+if (!process.env.IGNORE_DOT_ENV) {
+  // Ensure that we have all the environment variables we need.
+  const mnemonic: string | undefined = process.env.MNEMONIC;
+  if (!mnemonic) {
+    throw new Error("Please set your MNEMONIC in a .env file");
+  }
+
+  const infuraApiKey: string | undefined = process.env.INFURA_API_KEY;
+  if (!infuraApiKey) {
+    throw new Error("Please set your INFURA_API_KEY in a .env file");
+  }
+
+  config.networks = {
+    hardhat: {
+      accounts: {
+        mnemonic,
+      },
+      chainId: chainIds.hardhat,
+    },
+    arbitrum: getChainConfig("arbitrum-mainnet", mnemonic, infuraApiKey),
+    avalanche: getChainConfig("avalanche", mnemonic, infuraApiKey),
+    bsc: getChainConfig("bsc", mnemonic, infuraApiKey),
+    mainnet: getChainConfig("mainnet", mnemonic, infuraApiKey),
+    optimism: getChainConfig("optimism-mainnet", mnemonic, infuraApiKey),
+    "polygon-mainnet": getChainConfig("polygon-mainnet", mnemonic, infuraApiKey),
+    "polygon-mumbai": getChainConfig("polygon-mumbai", mnemonic, infuraApiKey),
+    rinkeby: getChainConfig("rinkeby", mnemonic, infuraApiKey),
+  };
+}
 
 export default config;
