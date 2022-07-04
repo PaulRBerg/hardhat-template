@@ -106,7 +106,7 @@ If you use VSCode, you can get Solidity syntax highlighting via the [vscode-soli
 ### Ethers and Waffle
 
 If you can't get the [Waffle matchers](https://ethereum-waffle.readthedocs.io/en/latest/matchers.html) to work, try to
-make your `ethers` package version match the version used by the `@ethereum-waffle/chai` package. Seem
+make your `ethers` package version match the version used by the `@ethereum-waffle/chai` package. See
 [#111](https://github.com/paulrberg/solidity-template/issues/111) for more details.
 
 ## License
