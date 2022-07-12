@@ -2,9 +2,9 @@ import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 import { ethers } from "hardhat";
 
-import { Greeter__factory } from "../../src/types";
 import type { Greeter } from "../../src/types/Greeter";
-import { Signers } from "../types";
+import type { Greeter__factory } from "../../src/types/factories/Greeter__factory";
+import type { Signers } from "../types";
 import { shouldBehaveLikeGreeter } from "./Greeter.behavior";
 
 describe("Unit tests", function () {

@@ -5,7 +5,6 @@ My favorite setup for writing Solidity smart contracts.
 - [Hardhat](https://github.com/nomiclabs/hardhat): compile and run the smart contracts on a local development network
 - [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript types for smart contracts
 - [Ethers](https://github.com/ethers-io/ethers.js/): renowned Ethereum library and wallet implementation
-- [Waffle](https://github.com/EthWorks/Waffle): tooling for writing comprehensive smart contract tests
 - [Solhint](https://github.com/protofire/solhint): linter
 - [Solcover](https://github.com/sc-forks/solidity-coverage): code coverage
 - [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code formatter
@@ -100,14 +99,6 @@ $ yarn deploy --greeting "Bonjour, le monde!"
 ## Syntax Highlighting
 
 If you use VSCode, you can get Solidity syntax highlighting via the [vscode-solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) extension.
-
-## Caveats
-
-### Ethers and Waffle
-
-If you can't get the [Waffle matchers](https://ethereum-waffle.readthedocs.io/en/latest/matchers.html) to work, try to
-make your `ethers` package version match the version used by the `@ethereum-waffle/chai` package. See
-[#111](https://github.com/paulrberg/solidity-template/issues/111) for more details.
 
 ## License
 
