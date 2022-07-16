@@ -1,6 +1,6 @@
 {
-  "name": "@prb/solidity-template",
-  "description": "Template for writing Solidity smart contracts",
+  "name": "@prb/hardhat-template",
+  "description": "Hardhat-based template for developing Solidity smart contracts",
   "version": "1.0.0",
   "author": {
     "name": "Paul Razvan Berg",
@@ -61,12 +61,16 @@
   ],
   "keywords": [
     "blockchain",
+    "ethers",
     "ethereum",
     "hardhat",
     "smart-contracts",
-    "solidity"
+    "solidity",
+    "template",
+    "typescript",
+    "typechain"
   ],
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@3.2.1",
   "publishConfig": {
     "access": "public"
   },
