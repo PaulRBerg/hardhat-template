@@ -82,8 +82,8 @@
     "postinstall": "husky install && yarn typechain",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",
-    "prettier": "prettier --config ./.prettierrc.yml --write \"**/*.{js,json,md,sol,ts,yaml,yml}\"",
-    "prettier:check": "prettier --check --config ./.prettierrc.yml \"**/*.{js,json,md,sol,ts,yaml,yml}\"",
+    "prettier": "prettier --config ./.prettierrc.yml --write \"**/*.{js,json,md,sol,ts,yml}\"",
+    "prettier:check": "prettier --check --config ./.prettierrc.yml \"**/*.{js,json,md,sol,ts,yml}\"",
     "test": "hardhat test",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
   }
