@@ -29,7 +29,7 @@ jobs:
         run: "yarn install --immutable"
 
       - name: "Lint the code"
-        run: "yarn lint:contracts"
+        run: "yarn lint"
 
       - name: "Add lint summary"
         run: |
@@ -37,10 +37,10 @@ jobs:
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
       - name: "Compile the contracts and generate the TypeChain bindings"
-        run: "yarn generate:types"
+        run: "yarn typechain"
 
       - name: "Test the contracts and generate the coverage report"
-        run: "yarn coverage:contracts"
+        run: "yarn coverage"
 
       - name: "Add test summary"
         run: |
