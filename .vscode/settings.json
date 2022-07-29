@@ -1,13 +1,16 @@
 {
-  "editor.formatOnSave": true,
-  "[solidity]": {
+  "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[json]": {
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[solidity]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.formatOnSave": true,
   "liveServer.settings.root": "/coverage"
 }
