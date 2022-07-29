@@ -7,3 +7,4 @@ vscode:
   extensions:
     - esbenp.prettier-vscode
     - JuanBlanco.solidity
+    - ritwickdey.LiveServer
