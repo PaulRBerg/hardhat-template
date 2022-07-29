@@ -1,0 +1,9 @@
+image: gitpod/workspace-node
+
+tasks:
+  - init: yarn install
+
+vscode:
+  extensions:
+    - esbenp.prettier-vscode
+    - JuanBlanco.solidity
