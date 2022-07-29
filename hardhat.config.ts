@@ -7,7 +7,8 @@ import { resolve } from "path";
 import "./tasks/accounts";
 import "./tasks/deploy";
 
-dotenvConfig({ path: resolve(__dirname, "./.env") });
+const dotenvConfigPath: string = process.env.DOTENV_CONFIG_PATH || "./.env";
+dotenvConfig({ path: resolve(__dirname, dotenvConfigPath) });
 
 // Ensure that we have all the environment variables we need.
 const mnemonic: string | undefined = process.env.MNEMONIC;
