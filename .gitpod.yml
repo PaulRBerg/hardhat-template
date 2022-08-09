@@ -1,4 +1,4 @@
-image: gitpod/workspace-node:2022-07-29-14-59-15
+image: gitpod/workspace-node:latest
 
 tasks:
   - init: yarn install
