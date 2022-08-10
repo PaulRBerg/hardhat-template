@@ -155,7 +155,7 @@ $ yarn deploy --greeting "Bonjour, le monde!"
 
 ### Syntax Highlighting
 
-If you use VSCode, you can get Solidity syntax highlighting with the [solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) extension.
+If you use VSCode, you can get Solidity syntax highlighting with the [hardhat-solidity](https://marketplace.visualstudio.com/items?itemName=NomicFoundation.hardhat-solidity) extension.
 
 ## Using GitPod
 
