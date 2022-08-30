@@ -1,5 +1,7 @@
-# Hardhat Template [![Github Actions][gha-badge]][gha] [![Hardhat][hardhat-badge]][hardhat] [![License: MIT][license-badge]][license]
+# Hardhat Template [![Open in Gitpod][gitpod-badge]][gitpod] [![Github Actions][gha-badge]][gha] [![Hardhat][hardhat-badge]][hardhat] [![License: MIT][license-badge]][license]
 
+[gitpod]: https://gitpod.io/#https://github.com/paulrberg/hardhat-template
+[gitpod-badge]: https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-FFB45B?logo=gitpod
 [gha]: https://github.com/paulrberg/hardhat-template/actions
 [gha-badge]: https://github.com/paulrberg/hardhat-template/actions/workflows/ci.yml/badge.svg
 [hardhat]: https://hardhat.org/
@@ -52,7 +54,7 @@ This template comes with sensible default configurations in the following files:
 This template comes with GitHub Actions pre-configured. Your contracts will be linted and tested on every push and pull
 request made to the `main` branch.
 
-Note though that to make this work, you must se your `INFURA_API_KEY` and your `MNEMONIC` as GitHub secrets.
+Note though that to make this work, you must use your `INFURA_API_KEY` and your `MNEMONIC` as GitHub secrets.
 
 You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.yml).
 

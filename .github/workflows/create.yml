@@ -1,0 +1,43 @@
+name: Create
+
+# The workflow will run only when `use this template` is used
+on:
+  create:
+
+jobs:
+  create:
+    # We will only run this action when the repository isn't the template repository
+    # Reference https://docs.github.com/en/actions/learn-github-actions/contexts
+    # Reference https://docs.github.com/en/actions/learn-github-actions/expressions
+    if: ${{ !github.event.repository.is_template }}
+
+    runs-on: ubuntu-latest
+    permissions: write-all
+
+    steps:
+      - name: "Check out the repo"
+        uses: "actions/checkout@v3"
+
+      - name: "Update package.json"
+        env:
+          REPOSITORY: ${{ github.repository }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+        run: ./.github/scripts/rename.sh "$REPOSITORY" "$REPOSITORY_OWNER"
+
+      - name: "Add rename summary"
+        run: |
+          echo "## Commit results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
+
+      - name: "Update commit"
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "feat: initial commit"
+          commit_options: "--amend"
+          push_options: "--force"
+          skip_fetch: true
+
+      - name: "Add commit summary"
+        run: |
+          echo "## Commit results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
