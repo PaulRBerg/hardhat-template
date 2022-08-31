@@ -1,9 +1,5 @@
 name: "CI"
 
-env:
-  INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
-  MNEMONIC: ${{ secrets.MNEMONIC }}
-
 on:
   pull_request:
     branches:
@@ -14,9 +10,6 @@ on:
 
 jobs:
   ci:
-    # skip workflow for the first commit
-    if: github.event.before != 0000000000000000000000000000000000000000
-
     runs-on: "ubuntu-latest"
     steps:
       - name: "Check out the repo"
@@ -27,6 +20,12 @@ jobs:
         with:
           cache: "yarn"
           node-version: "16"
+
+      # Inject all .env.example environment variables in $GITHUB_ENV
+      - name: "Set dotenv"
+        uses: c-py/action-dotenv-to-setenv@v2
+        with:
+          env-file: .env.example
 
       - name: "Install the dependencies"
         run: "yarn install --immutable"
