@@ -15,7 +15,7 @@ on:
 jobs:
   ci:
     # skip workflow for the first commit
-    if: github.event.before != '0000000000000000000000000000000000000000'
+    if: github.event.before != 0000000000000000000000000000000000000000
 
     runs-on: "ubuntu-latest"
     steps:
