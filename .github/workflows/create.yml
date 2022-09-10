@@ -22,7 +22,7 @@ jobs:
         env:
           REPOSITORY: ${{ github.repository }}
           REPOSITORY_OWNER: ${{ github.repository_owner }}
-        run: ./.github/scripts/rename.sh "@$REPOSITORY" "$REPOSITORY_OWNER"
+        run: ./.github/scripts/rename.sh "$REPOSITORY" "$REPOSITORY_OWNER"
 
       - name: "Add rename summary"
         run: |
