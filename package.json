@@ -74,7 +74,7 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "shx rm -rf ./artifacts ./cache ./coverage ./src/types ./coverage.json && yarn typechain",
+    "clean": "shx rm -rf ./artifacts ./cache ./coverage ./types ./coverage.json && yarn typechain",
     "commit": "git-cz",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",

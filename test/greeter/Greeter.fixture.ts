@@ -1,8 +1,8 @@
 import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 import { ethers } from "hardhat";
 
-import type { Greeter } from "../../src/types/Greeter";
-import type { Greeter__factory } from "../../src/types/factories/Greeter__factory";
+import type { Greeter } from "../../types/Greeter";
+import type { Greeter__factory } from "../../types/factories/Greeter__factory";
 
 export async function deployGreeterFixture(): Promise<{ greeter: Greeter }> {
   const signers: SignerWithAddress[] = await ethers.getSigners();
