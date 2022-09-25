@@ -4,17 +4,17 @@
 set -euo pipefail
 
 # Define the input vars
-REPOSITORY=${1?Error: Please pass username/repo, e.g. prb/hardhat-template}
-REPOSITORY_OWNER=${2?Error: Please pass username, e.g. prb}
+GITHUB_REPOSITORY=${1?Error: Please pass username/repo, e.g. prb/hardhat-template}
+GITHUB_REPOSITORY_OWNER=${2?Error: Please pass username, e.g. prb}
 
-echo "REPOSITORY: $REPOSITORY"
-echo "REPOSITORY_OWNER: $REPOSITORY_OWNER"
+echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+echo "GITHUB_REPOSITORY_OWNER: $GITHUB_REPOSITORY_OWNER"
 
 # jq is like sed for JSON data
 JQ_OUTPUT=`jq \
-  --arg NAME "@$REPOSITORY" \
-  --arg AUTHOR_NAME "$REPOSITORY_OWNER" \
-  --arg URL "https://github.com/$REPOSITORY_OWNER" \
+  --arg NAME "@$GITHUB_REPOSITORY" \
+  --arg AUTHOR_NAME "$GITHUB_REPOSITORY_OWNER" \
+  --arg URL "https://github.com/$GITHUB_REPOSITORY_OWNER" \
   '.name = $NAME | .description = "" | .author |= ( .name = $AUTHOR_NAME | .url = $URL )' \
   package.json
 `
