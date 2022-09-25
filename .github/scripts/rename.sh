@@ -23,4 +23,4 @@ JQ_OUTPUT=`jq \
 echo "$JQ_OUTPUT" > package.json
 
 # Rename instances of "paulrberg/hardhat-template" to the new repo name in README.md for badges only
-sed -i -e "/Use this template/! s|paulrberg/hardhat-template|"${REPOSITORY}"|;" "README.md"
+sed -i -e "/Use this template/! s|paulrberg/hardhat-template|"${GITHUB_REPOSITORY}"|;" "README.md"
