@@ -1,5 +1,8 @@
 name: "CI"
 
+env:
+  DOTENV_CONFIG_PATH: "./.env.example"
+
 on:
   pull_request:
     branches:
@@ -20,12 +23,6 @@ jobs:
         with:
           cache: "yarn"
           node-version: "lts/*"
-
-      # Inject all environment variables from ".env.example" in $GITHUB_ENV
-      - name: "Set dotenv"
-        uses: "c-py/action-dotenv-to-setenv@v2"
-        with:
-          env-file: ".env.example"
 
       - name: "Install the dependencies"
         run: "yarn install --immutable"
