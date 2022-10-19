@@ -1,4 +1,5 @@
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomiclabs/hardhat-ethers";
 import { config as dotenvConfig } from "dotenv";
 import fs from "fs";
 import "hardhat-deploy";
@@ -7,8 +8,7 @@ import type { HardhatUserConfig } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
 
-import "./tasks/accounts";
-import "./tasks/deploy";
+import "./tasks";
 
 const dotenvConfigPath: string = process.env.DOTENV_CONFIG_PATH || "./.env";
 dotenvConfig({ path: resolve(__dirname, dotenvConfigPath) });
@@ -78,6 +78,11 @@ const config: HardhatUserConfig = {
     enabled: process.env.REPORT_GAS ? true : false,
     excludeContracts: [],
     src: "./src",
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0, // here this will by default take the first account as deployer
+    },
   },
   networks: {
     hardhat: {
