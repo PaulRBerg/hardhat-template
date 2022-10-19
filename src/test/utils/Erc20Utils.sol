@@ -6,8 +6,6 @@ import "forge-std/Test.sol";
 contract Erc20Utils is Test {
     using stdStorage for StdStorage;
 
-    // event Transfer(address indexed from, address indexed to, uint256 value);
-
     function forceMintTo(
         address account,
         address token,
@@ -18,9 +16,6 @@ contract Erc20Utils is Test {
         );
 
         stdstore.target(token).sig(bytes4(keccak256("totalSupply()"))).checked_write(totalSupply(token) + amount);
-
-        // Should be emitted by token contract
-        // emit Transfer(address(0), account, amount);
     }
 
     function forceMint(address token, uint256 amount) external {

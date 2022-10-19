@@ -19,7 +19,7 @@ contract VaultTest is BaseFixture {
         assertTrue(success);
 
         uint256 balanceAfter = depositer.balance;
-        assertEq(balanceAfter, 7 ether - 1 ether);
+        assertEq(balanceAfter, balanceBefore - 1 ether);
 
         vm.stopPrank();
     }
