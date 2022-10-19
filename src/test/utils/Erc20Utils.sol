@@ -15,7 +15,7 @@ contract Erc20Utils is Test {
             balanceOf(token, account) + amount
         );
 
-        stdstore.target(token).sig(bytes4(keccak256("totalSupply()"))).checked_write(totalSupply(token) + amount);
+        // stdstore.target(token).sig(bytes4(keccak256("totalSupply()"))).checked_write(totalSupply(token) + amount);
     }
 
     function forceMint(address token, uint256 amount) external {
@@ -31,7 +31,7 @@ contract Erc20Utils is Test {
             balanceOf(token, account) - amount
         );
 
-        stdstore.target(token).sig(bytes4(keccak256("totalSupply()"))).checked_write(totalSupply(token) - amount);
+        // stdstore.target(token).sig(bytes4(keccak256("totalSupply()"))).checked_write(totalSupply(token) - amount);
 
         // Should be emitted by token contract
         // emit ERC20.Transfer(account, address(0), amount);

@@ -1,0 +1,5 @@
+[default]
+src = 'src'
+out = 'out'
+libs = ['lib']
+verbosity = 3

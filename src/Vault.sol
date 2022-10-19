@@ -6,7 +6,7 @@ import { ERC20 } from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import { IWETH9 } from "advanced-weth/contracts/interfaces/IWETH9.sol";
 
-// @dev a fake vault deposit
+// @dev a fake vault deposit, only can deposit but not withdraw
 contract Vault {
     using SafeERC20 for IERC20;
 
@@ -23,7 +23,7 @@ contract Vault {
         // Asset used in Theta / Delta Vault
         address asset;
         // Vault cap
-        uint104 cap;
+        uint256 cap;
     }
 
     VaultParams public vaultParams;
@@ -48,6 +48,7 @@ contract Vault {
 
     function depositETH() external payable {
         require(msg.value > 0, "!value");
+        require(vaultParams.asset == WETH, "!eth vault");
 
         IWETH9(payable(WETH)).deposit{ value: msg.value }();
 
@@ -67,9 +68,5 @@ contract Vault {
         uint256 totalWithDepositedAmount = IERC20(vaultParams.asset).balanceOf(address(this)) + amount;
         require(totalWithDepositedAmount <= vaultParams.cap, "Exceed cap");
         deposits[creditor] += amount;
-    }
-
-    function initiateWithdraw(uint256 numShares) external {
-        withdrawals[msg.sender] = numShares;
     }
 }

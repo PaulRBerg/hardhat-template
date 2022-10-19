@@ -11,8 +11,8 @@ import "../TokenX.sol";
 import "../Vault.sol";
 import "forge-std/console.sol";
 
-contract BaseFixture is Test, Utils, Erc20Utils {
-    using stdStorage for StdStorage;
+contract BaseFixture is Test, Utils {
+    Erc20Utils immutable erc20utils = new Erc20Utils();
 
     address constant weth_address = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
     IERC20 weth = IERC20(weth_address);
@@ -29,12 +29,7 @@ contract BaseFixture is Test, Utils, Erc20Utils {
         );
 
         tokenXVault.initialize(
-            Vault.VaultParams({
-                vaultType: Vault.VaultType.CALL,
-                decimals: 18,
-                asset: address(tokenX),
-                cap: 1000 ether
-            })
+            Vault.VaultParams({ vaultType: Vault.VaultType.CALL, decimals: 18, asset: address(tokenX), cap: 100 ether })
         );
 
         // label addresses
@@ -52,18 +47,18 @@ contract BaseFixture is Test, Utils, Erc20Utils {
         vm.deal(address(this), 1 ether);
         vm.deal(depositer, 7 ether);
         // cheat: force mint token balance
-        forceMintTo(address(depositer), address(weth), 8 ether);
-        tokenX.mint(address(depositer), 9 ether);
+        erc20utils.forceMintTo(address(depositer), address(weth), 8 ether);
+        tokenX.mint(address(depositer), 1000 ether);
 
-        // // assertion
-        // assertEq(depositer.balance, 7 ether);
-        // assertEq(weth.balanceOf(depositer), 8 ether);
-        // assertEq(tokenX.balanceOf(depositer), 9 ether);
+        // assertion
+        assertEq(depositer.balance, 7 ether);
+        assertEq(weth.balanceOf(depositer), 8 ether);
+        assertEq(tokenX.balanceOf(depositer), 1000 ether);
 
-        // // cheat: impersonate another user
-        // vm.startPrank(depositer);
-        // tokenX.approve(address(tokenXVault), 10e18);
-        // vm.stopPrank();
+        // cheat: impersonate another user
+        vm.startPrank(depositer);
+        tokenX.approve(address(tokenXVault), 2**256 - 1);
+        vm.stopPrank();
 
         // cheat: manipulate block timestamp
         // vm.warp(block.timestamp + 200);
