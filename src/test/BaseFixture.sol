@@ -18,17 +18,19 @@ contract BaseFixture is Test, Utils {
     IERC20 weth = IERC20(weth_address);
     TokenX tokenX = new TokenX();
 
-    Vault ethVault = new Vault(address(weth));
-    Vault tokenXVault = new Vault(address(weth));
+    Vault ethVault = new Vault();
+    Vault tokenXVault = new Vault();
 
     address immutable depositer = getAddress("depositer");
 
     function setUp() public virtual {
         ethVault.initialize(
+            address(weth),
             Vault.VaultParams({ vaultType: Vault.VaultType.CALL, decimals: 18, asset: address(weth), cap: 1000 ether })
         );
 
         tokenXVault.initialize(
+            address(weth),
             Vault.VaultParams({ vaultType: Vault.VaultType.CALL, decimals: 18, asset: address(tokenX), cap: 100 ether })
         );
 

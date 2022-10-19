@@ -65,4 +65,58 @@ contract VaultTest is BaseFixture {
 
         vm.stopPrank();
     }
+
+    function testOnlyOwnerCanPause() public {
+        vm.startPrank(depositer);
+
+        vm.expectRevert();
+        tokenXVault.pause();
+
+        vm.stopPrank();
+
+        tokenXVault.pause();
+    }
+
+    function testOnlyOwnerCanUnpause() public {
+        tokenXVault.pause();
+
+        vm.startPrank(depositer);
+
+        vm.expectRevert();
+        tokenXVault.unpause();
+
+        vm.stopPrank();
+
+        tokenXVault.unpause();
+    }
+
+    function testCannotDepositETHWhenPaused() public {
+        ethVault.pause();
+
+        vm.startPrank(depositer);
+        vm.expectRevert();
+        ethVault.depositETH{ value: 1 ether }();
+        vm.stopPrank();
+
+        ethVault.unpause();
+
+        vm.startPrank(depositer);
+        ethVault.depositETH{ value: 1 ether }();
+        vm.stopPrank();
+    }
+
+    function testCannotDepositWhenPaused() public {
+        tokenXVault.pause();
+
+        vm.startPrank(depositer);
+        vm.expectRevert();
+        tokenXVault.deposit(1 ether);
+        vm.stopPrank();
+
+        tokenXVault.unpause();
+
+        vm.startPrank(depositer);
+        tokenXVault.deposit(1 ether);
+        vm.stopPrank();
+    }
 }
