@@ -9,9 +9,9 @@
 [license]: https://opensource.org/licenses/MIT
 [license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
 
-A Hardhat-based & Foundry-based template for developing Solidity smart contracts & Proxies, with sensible defaults.
+A Hardhat-based & Foundry-based template for developing upgradeable Solidity smart contracts, with sensible defaults.
 
-This is also my personal opinionated extension on the following problems:
+This is also my personal opinionated solution on the following tricky problems:
 
 - foundry integrated with hardhat without manually copying solidity lib from source (but with npm)
   - overall, foundry is much faster than hardhat test & allowed me to write cleaner tests
