@@ -11,6 +11,9 @@
 
 A Hardhat-based template for developing Solidity smart contracts, with sensible defaults.
 
+This is also my personal study on foundry integrated with hardhat without manually copying solidity lib from source (but
+with npm), reproducable deployment and upgradeable proxy
+
 - [Hardhat](https://github.com/nomiclabs/hardhat): compile, run and test smart contracts
 - [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript bindings for smart contracts
 - [Ethers](https://github.com/ethers-io/ethers.js/): renowned Ethereum library and wallet implementation
@@ -74,6 +77,8 @@ This template uses [Husky](https://github.com/typicode/husky) to run automated c
 [Lint Staged](https://github.com/okonet/lint-staged) to automatically format the code with Prettier when making a git
 commit.
 
+TODO: also run the foundry test on commit
+
 ## Usage
 
 ### Pre Requisites
@@ -106,12 +111,18 @@ $ yarn typechain
 
 ### Test
 
-Run the tests with Forge:
+Run the tests with Forge of contract logic:
 
 (If this doesn't work, make sure you called `yarn clean` to do the remapping of foundry and hardhat first)
 
 ```sh
 $ forge test --fork-url <MAINNET_URL>
+```
+
+Run the tests with proxy upgrade logic:
+
+```sh
+$ yarn test
 ```
 
 ### Lint Solidity
