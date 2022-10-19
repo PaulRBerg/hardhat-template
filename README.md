@@ -12,7 +12,7 @@
 A Hardhat-based template for developing Solidity smart contracts, with sensible defaults.
 
 This is also my personal study on foundry integrated with hardhat without manually copying solidity lib from source (but
-with npm), reproducable deployment and upgradeable proxy
+with npm), reproducable deployment for frontend and upgradeable proxy
 
 - [Hardhat](https://github.com/nomiclabs/hardhat): compile, run and test smart contracts
 - [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript bindings for smart contracts
