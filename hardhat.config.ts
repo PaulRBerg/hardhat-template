@@ -77,7 +77,7 @@ const config: HardhatUserConfig = {
     currency: "USD",
     enabled: process.env.REPORT_GAS ? true : false,
     excludeContracts: [],
-    src: "./contracts",
+    src: "./src",
   },
   networks: {
     hardhat: {
@@ -98,7 +98,7 @@ const config: HardhatUserConfig = {
   paths: {
     artifacts: "./artifacts",
     cache: "./cache",
-    sources: "./contracts",
+    sources: "./src",
     tests: "./test",
   },
   solidity: {
@@ -143,6 +143,7 @@ function getRemappings() {
     .readFileSync("remappings.txt", "utf8")
     .split("\n")
     .filter((line) => !!line) // remove empty lines
+    .filter((line) => !line.trim().split("=")[1].startsWith("node_modules")) // skip node_modules
     .map((line) => line.trim().split("="));
 }
 

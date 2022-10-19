@@ -3,4 +3,5 @@ advanced-weth/=node_modules/advanced-weth/
 ds-test/=lib/forge-std/lib/ds-test/src/
 eth-gas-reporter/=node_modules/eth-gas-reporter/
 forge-std/=lib/forge-std/src/
+hardhat-deploy/=node_modules/hardhat-deploy/
 hardhat/=node_modules/hardhat/
