@@ -7,8 +7,9 @@ import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.s
 import { IWETH9 } from "advanced-weth/contracts/interfaces/IWETH9.sol";
 import {
     ReentrancyGuardUpgradeable
-} from "@openzeppelin/contracts-upgradeable/contracts/security/ReentrancyGuardUpgradeable.sol";
-import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/contracts/security/PausableUpgradeable.sol";
+} from "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
+import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 // @dev a fake vault deposit, only can deposit but not withdraw
 contract Vault is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgradeable {
@@ -31,18 +32,19 @@ contract Vault is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgrad
     }
 
     VaultParams public vaultParams;
-    address public immutable WETH;
+    address public WETH;
 
     mapping(address => uint256) public deposits;
     mapping(address => uint256) public withdrawals;
 
-    constructor(address _weth) {
+    function initialize(address _weth, Vault.VaultParams calldata _vaultParams) public initializer {
         require(_weth != address(0), "!_weth");
 
-        WETH = _weth;
-    }
+        __ReentrancyGuard_init();
+        __Ownable_init();
+        __Pausable_init();
 
-    function initialize(Vault.VaultParams calldata _vaultParams) public {
+        WETH = _weth;
         vaultParams = _vaultParams;
     }
 
@@ -50,7 +52,7 @@ contract Vault is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgrad
         return uint256(IERC20(vaultParams.asset).balanceOf(address(this)));
     }
 
-    function depositETH() external payable {
+    function depositETH() external payable whenNotPaused nonReentrant {
         require(msg.value > 0, "!value");
         require(vaultParams.asset == WETH, "!eth vault");
 
@@ -59,7 +61,7 @@ contract Vault is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgrad
         _depositFor(msg.value, msg.sender);
     }
 
-    function deposit(uint256 amount) external {
+    function deposit(uint256 amount) external whenNotPaused nonReentrant {
         require(amount > 0, "!amount");
 
         _depositFor(amount, msg.sender);
@@ -72,5 +74,13 @@ contract Vault is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgrad
         uint256 totalWithDepositedAmount = IERC20(vaultParams.asset).balanceOf(address(this)) + amount;
         require(totalWithDepositedAmount <= vaultParams.cap, "Exceed cap");
         deposits[creditor] += amount;
+    }
+
+    function pause() public onlyOwner {
+        _pause();
+    }
+
+    function unpause() public onlyOwner {
+        _unpause();
     }
 }
