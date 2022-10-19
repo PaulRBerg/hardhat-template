@@ -9,10 +9,40 @@
 [license]: https://opensource.org/licenses/MIT
 [license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
 
-A Hardhat-based template for developing Solidity smart contracts, with sensible defaults.
+A Hardhat-based & Foundry-based template for developing Solidity smart contracts & Proxies, with sensible defaults.
 
-This is also my personal study on foundry integrated with hardhat without manually copying solidity lib from source (but
-with npm), reproducable deployment for frontend and upgradeable proxy
+This is also my personal opinionated extension on the following problems:
+
+- foundry integrated with hardhat without manually copying solidity lib from source (but with npm)
+  - overall, foundry is much faster than hardhat test & allowed me to write cleaner tests
+  - but it's trivial process to integrate the foundry contracts
+    - this extended template will do the remapping, which will allow hardhat to resolve files by foundry and also allow
+      foundry to resolve files downloaded by npm
+- testing with soldity using foundry
+  - it covers the following features with foundry:
+    - fixure
+    - storage manipulation (used to minting unlimited erc20 token)
+    - EOA impersonation
+    - time-based testing (commented somewhere)
+    - assertion
+    - expect on revert
+    - fuzz input (property test)
+- reproducable deployment for frontend using hardhat-deploy
+  - generate a file that maps network name & address which frontend could be used
+- upgradeable contracts using proxy
+  - using `@openzeppeplin/contract-upgradable`
+  - use `initialize()` to bootstrap arguments instead of constructor
+    - security reason why we should use the library instead of writing our own:
+      - library provides `initialize` modifier that ensure us to initialize after deployment
+      - it can make sure `initialize` wouldn't be called again
+- scripts to upgrade the contract
+
+This is a template WIP, here are some of my to-dos:
+
+- Github Action with Foundry
+- Using external artifacts that already exists but not in npm registry
+
+## Libray used
 
 - [Hardhat](https://github.com/nomiclabs/hardhat): compile, run and test smart contracts
 - [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript bindings for smart contracts
@@ -22,6 +52,13 @@ with npm), reproducable deployment for frontend and upgradeable proxy
 - [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code formatter
 - [Foundry](https://github.com/foundry-rs/foundry): a framework that allows testing in Solidity
 - [hardhat-deploy](https://github.com/wighawag/hardhat-deploy): for replicable deployment, associate name to address
+
+## Feature introduction
+
+This repo include two version of `Vault` which user could deposit ETH (which will be wrapped as WETH) or ERC20 Token:
+
+- first version only allow deposit
+- second version will also allow withdraw
 
 ## Getting Started
 
@@ -53,6 +90,7 @@ This template comes with sensible default configurations in the following files:
 ├── .solhintignore
 ├── .solhint.json
 ├── .yarnrc.yml
+├── foundry.toml
 └── hardhat.config.ts
 ```
 
@@ -60,8 +98,6 @@ This template comes with sensible default configurations in the following files:
 
 This template comes with GitHub Actions pre-configured. Your contracts will be linted and tested on every push and pull
 request made to the `main` branch.
-
-TODO: run the foundry test on push
 
 Note though that to make this work, you must use your `INFURA_API_KEY` and your `MNEMONIC` as GitHub secrets.
 
@@ -92,6 +128,9 @@ Then, proceed with installing dependencies:
 ```sh
 $ yarn install
 ```
+
+Make sure you have `forge` installed as well, which is very easy:
+[website](https://book.getfoundry.sh/getting-started/installation)
 
 ### Compile
 
