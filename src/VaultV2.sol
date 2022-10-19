@@ -11,8 +11,8 @@ import {
 import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-// @dev a fake vault deposit, only can deposit but not withdraw
-contract Vault is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgradeable {
+// @dev a withdrawable contract
+contract VaultV2 is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgradeable {
     using SafeERC20 for IERC20;
 
     enum VaultType {
@@ -36,7 +36,7 @@ contract Vault is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgrad
 
     mapping(address => uint256) public balanceOf;
 
-    function initialize(address _weth, Vault.VaultParams calldata _vaultParams) public initializer {
+    function initialize(address _weth, VaultV2.VaultParams calldata _vaultParams) public initializer {
         require(_weth != address(0), "!_weth");
 
         __ReentrancyGuard_init();
@@ -73,6 +73,23 @@ contract Vault is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgrad
         uint256 totalWithDepositedAmount = IERC20(vaultParams.asset).balanceOf(address(this)) + amount;
         require(totalWithDepositedAmount <= vaultParams.cap, "Exceed cap");
         balanceOf[creditor] += amount;
+    }
+
+    function withdraw(uint256 amount) external whenNotPaused nonReentrant {
+        require(amount > 0, "!amount");
+        _withdrawFor(amount, msg.sender);
+    }
+
+    function withdrawAll() external whenNotPaused nonReentrant {
+        _withdrawFor(balanceOf[msg.sender], msg.sender);
+    }
+
+    function _withdrawFor(uint256 amount, address addressTo) private {
+        require(amount <= balanceOf[addressTo], "insufficient balance");
+
+        balanceOf[addressTo] -= amount;
+
+        IERC20(vaultParams.asset).safeTransfer(addressTo, amount);
     }
 
     function pause() public onlyOwner {

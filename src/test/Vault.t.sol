@@ -21,6 +21,9 @@ contract VaultTest is BaseFixture {
         uint256 balanceAfter = depositer.balance;
         assertEq(balanceAfter, balanceBefore - 1 ether);
 
+        uint256 balanceVault = ethVault.balanceOf(address(depositer));
+        assertEq(balanceVault, 1 ether);
+
         vm.stopPrank();
     }
 
@@ -35,6 +38,9 @@ contract VaultTest is BaseFixture {
 
         uint256 balanceAfter = depositer.balance;
         assertEq(balanceAfter, balanceBefore);
+
+        uint256 balanceVault = tokenXVault.balanceOf(address(depositer));
+        assertEq(balanceVault, 0);
 
         vm.stopPrank();
     }
