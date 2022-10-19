@@ -17,6 +17,7 @@ A Hardhat-based template for developing Solidity smart contracts, with sensible 
 - [Solhint](https://github.com/protofire/solhint): code linter
 - [Solcover](https://github.com/sc-forks/solidity-coverage): code coverage
 - [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code formatter
+- [Foundry](https://github.com/foundry-rs/foundry): a framework that allows testing in Solidity
 
 ## Getting Started
 
@@ -139,12 +140,14 @@ $ yarn coverage
 See the gas usage per unit test and average gas per method call:
 
 ```sh
-$ REPORT_GAS=true yarn test
+$ forge test --fork-url <MAINNET_URL>
 ```
 
 ### Clean
 
 Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
+
+**Make sure to call this if there is any library & dependency change**
 
 ```sh
 $ yarn clean
