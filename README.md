@@ -105,10 +105,12 @@ $ yarn typechain
 
 ### Test
 
-Run the tests with Hardhat:
+Run the tests with Forge:
+
+(If this doesn't work, make sure you called `yarn clean` to do the remapping of foundry and hardhat first)
 
 ```sh
-$ yarn test
+$ forge test --fork-url <MAINNET_URL>
 ```
 
 ### Lint Solidity
@@ -140,7 +142,7 @@ $ yarn coverage
 See the gas usage per unit test and average gas per method call:
 
 ```sh
-$ forge test --fork-url <MAINNET_URL>
+$ forge test --fork-url <MAINNET_URL> --report-gas
 ```
 
 ### Clean
