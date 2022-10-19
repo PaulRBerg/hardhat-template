@@ -155,13 +155,19 @@ Run the tests with Forge of contract logic:
 (If this doesn't work, make sure you called `yarn clean` to do the remapping of foundry and hardhat first)
 
 ```sh
-$ forge test --fork-url <MAINNET_URL>
+$ forge test --fork-url <MAINNET_RPC_URL>
+```
+
+or (make sure you set `MAINNET_RPC_URL` in `.env`)
+
+```sh
+$ yarn test
 ```
 
 Run the tests with proxy upgrade logic:
 
 ```sh
-$ yarn test
+$ yarn deploy:test
 ```
 
 ### Lint Solidity

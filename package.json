@@ -79,7 +79,7 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "forge remappings > remappings.txt && shx rm -rf ./artifacts ./cache ./coverage ./types ./coverage.json",
+    "clean": "yarn foundry:remappings && shx rm -rf ./artifacts ./cache ./coverage ./types ./coverage.json && yarn typechain",
     "commit": "git-cz",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",
@@ -92,7 +92,9 @@
     "prepublishOnly": "pinst --disable",
     "prettier": "prettier --config ./.prettierrc.yml --write \"**/*.{js,json,md,sol,ts,yml}\"",
     "prettier:check": "prettier --check --config ./.prettierrc.yml \"**/*.{js,json,md,sol,ts,yml}\"",
-    "test": "hardhat test",
+    "deploy:test": "hardhat test",
+    "test": "MAINNET_RPC_URL=$(grep '^MAINNET_RPC_URL' .env) && forge test --fork-url $MAINNET_RPC_URL",
+    "foundry:remappings": "forge remappings > remappings.txt",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
   }
 }
