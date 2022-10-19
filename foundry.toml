@@ -1,5 +1,5 @@
 [profile.default]
 src = 'src'
 out = 'out'
-libs = ['lib']
+libs = ['lib', 'node_modules']
 verbosity = 3
