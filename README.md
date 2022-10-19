@@ -18,6 +18,7 @@ A Hardhat-based template for developing Solidity smart contracts, with sensible 
 - [Solcover](https://github.com/sc-forks/solidity-coverage): code coverage
 - [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code formatter
 - [Foundry](https://github.com/foundry-rs/foundry): a framework that allows testing in Solidity
+- [hardhat-deploy](https://github.com/wighawag/hardhat-deploy): for replicable deployment, associate name to address
 
 ## Getting Started
 
