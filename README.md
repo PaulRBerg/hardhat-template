@@ -61,6 +61,8 @@ This template comes with sensible default configurations in the following files:
 This template comes with GitHub Actions pre-configured. Your contracts will be linted and tested on every push and pull
 request made to the `main` branch.
 
+TODO: run the foundry test on push
+
 Note though that to make this work, you must use your `INFURA_API_KEY` and your `MNEMONIC` as GitHub secrets.
 
 You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.yml).
@@ -76,8 +78,6 @@ automated tools on top of.
 This template uses [Husky](https://github.com/typicode/husky) to run automated checks on commit messages, and
 [Lint Staged](https://github.com/okonet/lint-staged) to automatically format the code with Prettier when making a git
 commit.
-
-TODO: also run the foundry test on commit
 
 ## Usage
 
