@@ -4,7 +4,9 @@ pragma solidity ^0.8.13;
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { ERC20 } from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import { IWETH9 } from "advanced-weth/contracts/interfaces/IWETH9.sol";
 
+// @dev a fake vault deposit
 contract Vault {
     using SafeERC20 for IERC20;
 
@@ -20,10 +22,6 @@ contract Vault {
         uint8 decimals;
         // Asset used in Theta / Delta Vault
         address asset;
-        // Underlying asset of the options sold by vault
-        address underlying;
-        // Minimum supply of the vault shares issued, for ETH it's 10**10
-        uint56 minimumSupply;
         // Vault cap
         uint104 cap;
     }
@@ -45,14 +43,14 @@ contract Vault {
     }
 
     function totalBalance() public view returns (uint256) {
-        if (vaultParams.asset == WETH) {
-            return address(this).balance;
-        }
         return uint256(IERC20(vaultParams.asset).balanceOf(address(this)));
     }
 
     function depositETH() external payable {
         require(msg.value > 0, "!value");
+
+        IWETH9(payable(WETH)).deposit{ value: msg.value }();
+
         _depositFor(msg.value, msg.sender);
     }
 
