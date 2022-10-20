@@ -1,6 +1,5 @@
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomiclabs/hardhat-ethers";
-import "@openzeppelin/hardhat-upgrades";
 import { config as dotenvConfig } from "dotenv";
 import fs from "fs";
 import "hardhat-deploy";

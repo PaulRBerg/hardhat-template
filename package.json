@@ -86,7 +86,6 @@
     "commit": "git-cz",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",
-    "deploy": "hardhat deploy:Greeter",
     "lint": "yarn lint:sol && yarn lint:ts && yarn prettier:check",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config ./.eslintrc.yml --ignore-path ./.eslintignore --ext .js,.ts .",
@@ -95,9 +94,12 @@
     "prepublishOnly": "pinst --disable",
     "prettier": "prettier --config ./.prettierrc.yml --write \"**/*.{js,json,md,sol,ts,yml}\"",
     "prettier:check": "prettier --check --config ./.prettierrc.yml \"**/*.{js,json,md,sol,ts,yml}\"",
-    "deploy:test": "hardhat test",
+    "deploy:localtest": "hardhat test --network localhost",
     "test": "MAINNET_RPC_URL=$(grep '^MAINNET_RPC_URL' .env) && forge test --fork-url $MAINNET_RPC_URL",
     "foundry:remappings": "forge remappings > remappings.txt",
-    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
+    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
+    "node": "npx hardhat node --show-stack-traces",
+    "deploy:v1:local": "npx hardhat deploy:v1 --network localhost",
+    "deploy:v2:local": "npx hardhat deploy:v2 --network localhost"
   }
 }
