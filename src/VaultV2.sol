@@ -10,10 +10,12 @@ import {
 } from "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
 import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { SafeERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
+import { IERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 
 // @dev a withdrawable contract
 contract VaultV2 is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgradeable {
-    using SafeERC20 for IERC20;
+    using SafeERC20Upgradeable for IERC20Upgradeable;
 
     enum VaultType {
         CALL,
@@ -66,7 +68,7 @@ contract VaultV2 is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgr
         _depositFor(amount, msg.sender);
 
         // An approve() by the msg.sender is required beforehand
-        IERC20(vaultParams.asset).safeTransferFrom(msg.sender, address(this), amount);
+        IERC20Upgradeable(vaultParams.asset).safeTransferFrom(msg.sender, address(this), amount);
     }
 
     function _depositFor(uint256 amount, address creditor) private {
@@ -89,7 +91,7 @@ contract VaultV2 is ReentrancyGuardUpgradeable, OwnableUpgradeable, PausableUpgr
 
         balanceOf[addressTo] -= amount;
 
-        IERC20(vaultParams.asset).safeTransfer(addressTo, amount);
+        IERC20Upgradeable(vaultParams.asset).safeTransfer(addressTo, amount);
     }
 
     function pause() public onlyOwner {
