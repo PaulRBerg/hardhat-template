@@ -81,7 +81,8 @@
   "scripts": {
     "preclean": "mkdir tasksCopy && cp -r tasks/* tasksCopy && rm -rf tasks && mkdir tasks && touch tasks/index.ts",
     "postclean": "cp -r tasksCopy/* tasks && rm -rf tasksCopy",
-    "clean": "yarn preclean && yarn hardhat clean && yarn foundry:remappings && shx rm -rf ./artifacts ./cache ./coverage ./types ./coverage.json ./out ./deployments && TS_NODE_TRANSPILE_ONLY=1 yarn hardhat compile && TS_NODE_TRANSCRIPT_ONLY=1 yarn typechain && yarn preclean",
+    "clean": "yarn preclean && yarn hardhat clean && yarn foundry:remappings && shx rm -rf ./artifacts ./cache ./coverage ./types ./coverage.json ./out ./deployments && TS_NODE_TRANSPILE_ONLY=1 yarn hardhat compile && TS_NODE_TRANSCRIPT_ONLY=1 yarn typechain && yarn postclean",
+    "clean:deployments": "rm -rf deployments",
     "commit": "git-cz",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",

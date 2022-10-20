@@ -1,6 +1,6 @@
 import { task } from "hardhat/config";
 
-import { TokenX__factory, VaultProxy__factory, Vault__factory } from "../types";
+import { ProxyAdmin__factory, TokenX__factory, Vault__factory } from "../types";
 
 task("deploy:v1", "Deploy vault contracts", async (_, { getNamedAccounts, deployments, ethers }) => {
   const { deployer } = await getNamedAccounts();
@@ -14,6 +14,14 @@ task("deploy:v1", "Deploy vault contracts", async (_, { getNamedAccounts, deploy
     log: true,
   });
 
+  const proxyAdminRes = await deploy("ProxyAdmin", {
+    from: deployer,
+    contract: ProxyAdmin__factory,
+    gasLimit: 4000000,
+    args: [],
+    log: true,
+  });
+
   const vaultRes = await deploy("Vault", {
     from: deployer,
     contract: Vault__factory,
@@ -22,8 +30,8 @@ task("deploy:v1", "Deploy vault contracts", async (_, { getNamedAccounts, deploy
     log: true,
     proxy: {
       owner: deployer,
-      upgradeIndex: 1,
-      proxyContract: VaultProxy__factory,
+      proxyContract: "OpenZeppelinTransparentProxy",
+      viaAdminContract: "ProxyAdmin",
       execute: {
         methodName: "initialize",
         args: [
@@ -39,3 +47,5 @@ task("deploy:v1", "Deploy vault contracts", async (_, { getNamedAccounts, deploy
     },
   });
 });
+
+export {};

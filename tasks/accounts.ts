@@ -8,3 +8,5 @@ task("accounts", "Prints the list of accounts", async (_taskArgs, hre) => {
     console.log(await account.getAddress());
   }
 });
+
+export {};
