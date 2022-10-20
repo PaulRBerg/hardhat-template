@@ -98,7 +98,7 @@
     "test": "MAINNET_RPC_URL=$(grep '^MAINNET_RPC_URL' .env) && forge test --fork-url $MAINNET_RPC_URL",
     "foundry:remappings": "forge remappings > remappings.txt",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
-    "node": "npx hardhat node --show-stack-traces",
+    "start": "npx hardhat node --show-stack-traces",
     "deploy:v1:local": "npx hardhat deploy:v1 --network localhost",
     "deploy:v2:local": "npx hardhat deploy:v2 --network localhost"
   }

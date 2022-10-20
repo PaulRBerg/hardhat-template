@@ -171,7 +171,7 @@ $ yarn test
 If want to run the upgrade logic, firstly run a node
 
 ```sh
-$ yarn node
+$ yarn start
 ```
 
 Run the following task to deploy
