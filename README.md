@@ -9,7 +9,8 @@
 [license]: https://opensource.org/licenses/MIT
 [license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
 
-A Hardhat-based & Foundry-based template for developing upgradeable Solidity smart contracts, with sensible defaults.
+A Hardhat-based & Foundry-based template for developing upgradeable Solidity smart contracts and etc, with sensible
+defaults.
 
 This is also my personal opinionated solution on the following tricky problems:
 
@@ -35,7 +36,10 @@ This is also my personal opinionated solution on the following tricky problems:
     - security reason why we should use the library instead of writing our own:
       - library provides `initialize` modifier that ensure us to initialize after deployment
       - it can make sure `initialize` wouldn't be called again
-- scripts to upgrade the contract
+- scripts to upgrade the contract using hardhat-deploy
+- solve circular package problem of typechain gen and tasks file
+  - by moving away `tasks` folder away before the `clean` and move it back after the clean
+  - this seems to be the only way to bypass ci/cd
 
 This is a template WIP, here are some of my to-dos:
 
@@ -164,10 +168,23 @@ or (make sure you set `MAINNET_RPC_URL` in `.env`)
 $ yarn test
 ```
 
-Run the tests with proxy upgrade logic:
+If want to run the upgrade logic, firstly run a node
 
 ```sh
-$ yarn deploy:test
+$ yarn node
+```
+
+Run the following task to deploy
+
+```sh
+$ yarn deploy:v1:local
+$ yarn deploy:v2:local
+```
+
+In the seperate tab, run the tests with proxy upgrade logic:
+
+```sh
+$ yarn deploy:localtest
 ```
 
 ### Lint Solidity
