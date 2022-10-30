@@ -73,6 +73,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "resolutions": {
+    "solhint/@solidity-parser/parser": "^0.14.5"
+  },
   "scripts": {
     "clean": "shx rm -rf ./artifacts ./cache ./coverage ./types ./coverage.json && yarn typechain",
     "commit": "git-cz",
