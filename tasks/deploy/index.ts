@@ -1,1 +1,2 @@
 import "./greeter";
+import "./lock";
