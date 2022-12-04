@@ -8,7 +8,7 @@ task("deploy:Lock")
   .addParam("unlockTime", "The contract unlocked time.", new Date().getTime() + "")
   .setAction(async function (taskArguments: TaskArguments, { ethers }) {
     const signers: SignerWithAddress[] = await ethers.getSigners();
-    const lockFactory: Lock__factory = <Lock__factory>await ethers.getContractFactory("Greeter");
+    const lockFactory: Lock__factory = <Lock__factory>await ethers.getContractFactory("Lock");
     const lock = await lockFactory.connect(signers[0]).deploy(taskArguments.unlockTime);
     await lock.deployed();
     console.log("Lock deployed to: ", lock.address);
