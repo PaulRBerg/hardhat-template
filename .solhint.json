@@ -6,13 +6,13 @@
     "compiler-version": ["error", ">=0.8.4"],
     "func-visibility": ["error", { "ignoreConstructors": true }],
     "max-line-length": ["error", 120],
+    "named-parameters-mapping": "warn",
     "not-rely-on-time": "off",
     "prettier/prettier": [
       "error",
       {
         "endOfLine": "auto"
       }
-    ],
-    "reason-string": ["warn", { "maxLength": 64 }]
+    ]
   }
 }
