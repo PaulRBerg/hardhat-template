@@ -7,6 +7,7 @@
     "func-visibility": ["error", { "ignoreConstructors": true }],
     "max-line-length": ["error", 120],
     "named-parameters-mapping": "warn",
+    "no-console": "off",
     "not-rely-on-time": "off",
     "prettier/prettier": [
       "error",
