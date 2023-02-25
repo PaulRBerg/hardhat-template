@@ -37,7 +37,6 @@ For example, for Hardhat, you can refer to the [Hardhat Tutorial](https://hardha
 This template comes with sensible default configurations in the following files:
 
 ```text
-├── .commitlintrc.yml
 ├── .editorconfig
 ├── .eslintignore
 ├── .eslintrc.yml
@@ -45,7 +44,6 @@ This template comes with sensible default configurations in the following files:
 ├── .prettierignore
 ├── .prettierrc.yml
 ├── .solcover.js
-├── .solhintignore
 ├── .solhint.json
 ├── .yarnrc.yml
 └── hardhat.config.ts
@@ -59,18 +57,6 @@ request made to the `main` branch.
 Note though that to make this work, you must use your `INFURA_API_KEY` and your `MNEMONIC` as GitHub secrets.
 
 You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.yml).
-
-### Conventional Commits
-
-This template enforces the [Conventional Commits](https://www.conventionalcommits.org/) standard for git commit
-messages. This is a lightweight convention that creates an explicit commit history, which makes it easier to write
-automated tools on top of.
-
-### Git Hooks
-
-This template uses [Husky](https://github.com/typicode/husky) to run automated checks on commit messages, and
-[Lint Staged](https://github.com/okonet/lint-staged) to automatically format the code with Prettier when making a git
-commit.
 
 ## Usage
 
