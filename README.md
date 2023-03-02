@@ -49,6 +49,11 @@ This template comes with sensible default configurations in the following files:
 └── hardhat.config.ts
 ```
 
+### VSCode Integration
+
+This template is IDE agnostic, but for the best user experience, you may want to use it in VSCode alongside Nomic
+Foundation's [Solidity extension](https://marketplace.visualstudio.com/items?itemName=NomicFoundation.hardhat-solidity).
+
 ### GitHub Actions
 
 This template comes with GitHub Actions pre-configured. Your contracts will be linted and tested on every push and pull
