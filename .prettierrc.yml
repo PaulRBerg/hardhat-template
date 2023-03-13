@@ -1,4 +1,7 @@
 bracketSpacing: true
+plugins:
+  - "@trivago/prettier-plugin-sort-imports"
+  - "prettier-plugin-solidity"
 printWidth: 120
 proseWrap: "always"
 singleQuote: false
