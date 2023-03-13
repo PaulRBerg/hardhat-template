@@ -1,7 +1,7 @@
 image: "gitpod/workspace-node:latest"
 
 tasks:
-  - init: "yarn install"
+  - init: "pnpm install"
 
 vscode:
   extensions:
