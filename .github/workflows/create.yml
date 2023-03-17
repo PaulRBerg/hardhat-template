@@ -27,8 +27,9 @@ jobs:
           echo "## Commit result" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
-      - name: "Remove `rename.sh` and `create.yml`"
+      - name: "Remove files not needed in the user's copy of the template"
         run: |
+          rm -f "./.github/FUNDING.yml"
           rm -f "./.github/scripts/rename.sh"
           rm -f "./.github/workflows/create.yml"
 
