@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": {
     "name": "Paul Razvan Berg",
-    "url": "https://github.com/paulrberg"
+    "url": "https://github.com/PaulRBerg"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.7.0",
@@ -49,7 +49,7 @@
     "typescript": "^4.9.3"
   },
   "files": [
-    "/contracts"
+    "contracts"
   ],
   "keywords": [
     "blockchain",
