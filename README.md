@@ -145,7 +145,7 @@ $ pnpm clean
 Deploy the contracts to Hardhat Network:
 
 ```sh
-$ pnpm deploy --greeting "Bonjour, le monde!"
+$ pnpm deploy:contracts --greeting "Bonjour, le monde!"
 ```
 
 ## Tips
