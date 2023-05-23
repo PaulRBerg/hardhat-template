@@ -5,7 +5,7 @@ import type { TaskArguments } from "hardhat/types";
 import type { Greeter } from "../../types/Greeter";
 import type { Greeter__factory } from "../../types/factories/Greeter__factory";
 
-task("deploy:Greeter")
+task("task:deployGreeter")
   .addParam("greeting", "Say hello, be nice")
   .setAction(async function (taskArguments: TaskArguments, { ethers }) {
     const signers: SignerWithAddress[] = await ethers.getSigners();
