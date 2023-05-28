@@ -9,9 +9,9 @@ task("task:setGreeting")
   .addParam("greeting", "Say hello, be nice")
   .addParam("account", "Specify which account [0, 9]")
   .setAction(async function (taskArguments: TaskArguments, hre) {
-    let { ethers, deployments } = hre;
+    const { ethers, deployments } = hre;
 
-    let Greeter = await deployments.get("Greeter");
+    const Greeter = await deployments.get("Greeter");
 
     const signers: SignerWithAddress[] = await ethers.getSigners();
 

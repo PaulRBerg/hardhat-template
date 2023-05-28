@@ -150,22 +150,21 @@ $ pnpm deploy:contracts"
 
 ### Tasks
 
-#### Set Greeting
+#### Deploy Greeter
 
-Call the set greeting task on ganache network
-
-```sh
-$ pnpm task:setGreeting --network ganache --greeting "Bonjour, le monde!" --account 3
-```
-
-#### Deploy a new Greeter contract
-
-Deploy a new instance of the Greeter contract via a task
+Deploy a new instance of the Greeter contract via a task:
 
 ```sh
 $ pnpm task:deployGreeter --network ganache --greeting "Bonjour, le monde!"
 ```
 
+#### Set Greeting
+
+Run the `setGreeting` task on the Ganache network:
+
+```sh
+$ pnpm task:setGreeting --network ganache --greeting "Bonjour, le monde!" --account 3
+```
 
 ## Tips
 
@@ -183,23 +182,21 @@ on/off.
 
 ## Local development with Ganache
 
-### Install ganache
+### Install Ganache
 
 ```sh
-$ npm i -g ganache"
+$ npm i -g ganache
 ```
 
-### Run a local blockchain using ganache
+### Run a Development Blockchain
 
 ```sh
-$ ganache -s test"
+$ ganache -s test
 ```
 
 > The `-s test` passes a seed to the local chain and makes it deterministic
 
-Make sure to set the mnemonic in your `.env` file to that of the instance running with ganache
-
-
+Make sure to set the mnemonic in your `.env` file to that of the instance running with Ganache.
 
 ## License
 
