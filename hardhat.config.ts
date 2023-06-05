@@ -28,6 +28,7 @@ const chainIds = {
   avalanche: 43114,
   bsc: 56,
   hardhat: 31337,
+  ganache: 1337,
   mainnet: 1,
   "optimism-mainnet": 10,
   "polygon-mainnet": 137,
