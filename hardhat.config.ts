@@ -27,6 +27,7 @@ const chainIds = {
   "arbitrum-mainnet": 42161,
   avalanche: 43114,
   bsc: 56,
+  ganache: 1337,
   hardhat: 31337,
   mainnet: 1,
   "optimism-mainnet": 10,
