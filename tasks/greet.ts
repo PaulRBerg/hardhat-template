@@ -1,9 +1,5 @@
-import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { task } from "hardhat/config";
 import type { TaskArguments } from "hardhat/types";
-
-import type { Greeter } from "../../types/Greeter";
-import type { Greeter__factory } from "../../types/factories/Greeter__factory";
 
 task("task:setGreeting")
   .addParam("greeting", "Say hello, be nice")
@@ -13,9 +9,9 @@ task("task:setGreeting")
 
     const Greeter = await deployments.get("Greeter");
 
-    const signers: SignerWithAddress[] = await ethers.getSigners();
+    const signers = await ethers.getSigners();
 
-    const greeter = <Greeter>await ethers.getContractAt("Greeter", Greeter.address);
+    const greeter = await ethers.getContractAt("Greeter", Greeter.address);
 
     await greeter.connect(signers[taskArguments.account]).setGreeting(taskArguments.greeting);
 
