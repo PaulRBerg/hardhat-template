@@ -1,0 +1,3 @@
+@prb/math/=node_modules/@prb/math/src/
+@sablier/v2-core/=node_modules/@sablier/v2-core/src/
+forge-std/=lib/forge-std/src/

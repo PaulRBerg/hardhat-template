@@ -3,6 +3,9 @@ pragma solidity >=0.8.4;
 
 import { console } from "hardhat/console.sol";
 
+import { LockupLinear } from "@sablier/v2-core/types/DataTypes.sol";
+import { stdError } from "forge-std/StdError.sol";
+
 error GreeterError();
 
 contract Greeter {

@@ -1,3 +1,4 @@
+import "@nomicfoundation/hardhat-foundry";
 import "@nomicfoundation/hardhat-toolbox";
 import { config as dotenvConfig } from "dotenv";
 import "hardhat-deploy";
@@ -112,7 +113,7 @@ const config: HardhatUserConfig = {
     tests: "./test",
   },
   solidity: {
-    version: "0.8.17",
+    version: "0.8.19",
     settings: {
       metadata: {
         // Not including the metadata hash
