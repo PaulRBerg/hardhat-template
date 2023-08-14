@@ -1,5 +1,14 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  '@sablier/v2-core':
+    specifier: ^1.0.1
+    version: 1.0.1(@openzeppelin/contracts@4.9.2)(@prb/math@4.0.1)
+
 devDependencies:
   '@nomicfoundation/hardhat-chai-matchers':
     specifier: ^2.0.0
@@ -1166,6 +1175,24 @@ packages:
       '@nomicfoundation/solidity-analyzer-win32-x64-msvc': 0.1.1
     dev: true
 
+  /@openzeppelin/contracts@4.9.2:
+    resolution: {integrity: sha512-mO+y6JaqXjWeMh9glYVzVu8HYPGknAAnWyxTRhGeckOruyXQMNnlcW6w/Dx9ftLeIQk6N+ZJFuVmTwF7lEIFrg==}
+    dev: false
+
+  /@prb/math@4.0.1:
+    resolution: {integrity: sha512-ANTz2KMV+dMdZ57mWgDTR6jZo5uQzUczQEHCxd7CvJZZ9yafnfPhUUILHvvigIOZ85fZbTPVkC8YoRG1z5Qf7g==}
+    dev: false
+
+  /@sablier/v2-core@1.0.1(@openzeppelin/contracts@4.9.2)(@prb/math@4.0.1):
+    resolution: {integrity: sha512-f7ALblu7XPQ0+RvzWbG1WxpRVZpDEkT9A1DHCRuoGLx4aOgNRK00MuzuJNET25zmbbKYTdGcY8B7gLYBgIkMZw==}
+    peerDependencies:
+      '@openzeppelin/contracts': 4.9.2
+      '@prb/math': 4.0.1
+    dependencies:
+      '@openzeppelin/contracts': 4.9.2
+      '@prb/math': 4.0.1
+    dev: false
+
   /@scure/base@1.1.1:
     resolution: {integrity: sha512-ZxOhsSyxYwLJj3pLZCefNitxsj093tb2vq90mp2txoYeBqbcjDjqFhyM8eUjq/uFm6zJ+mUuqxlS2FkuSY1MTA==}
     dev: true
@@ -1730,6 +1757,7 @@ packages:
   /amdefine@1.0.1:
     resolution: {integrity: sha512-S2Hw0TtNkMJhIabBwIojKL9YHO5T0n5eNqWJ7Lrlel/zDbftQpxpapi8tZs3X1HWa+u+QeydGmzzNU0m09+Rcg==}
     engines: {node: '>=0.4.2'}
+    requiresBuild: true
     dev: true
     optional: true
 

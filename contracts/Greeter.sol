@@ -3,10 +3,13 @@ pragma solidity >=0.8.4;
 
 import { console } from "hardhat/console.sol";
 
+import { IERC721 } from "@sablier/v2-core/src/types/Tokens.sol";
+
 error GreeterError();
 
 contract Greeter {
     string public greeting;
+    IERC721 public nft;
 
     constructor(string memory _greeting) {
         console.log("Deploying a Greeter with greeting:", _greeting);

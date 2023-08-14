@@ -8,9 +8,9 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.6",
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
-    "@nomicfoundation/hardhat-ethers": "^3.0.0",
     "@nomicfoundation/hardhat-verify": "^1.0.0",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@typechain/ethers-v6": "^0.4.0",
@@ -76,5 +76,8 @@
     "task:setGreeting": "hardhat task:setGreeting",
     "test": "hardhat test",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
+  },
+  "dependencies": {
+    "@sablier/v2-core": "^1.0.1"
   }
 }
