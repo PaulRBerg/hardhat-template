@@ -145,7 +145,7 @@ $ pnpm clean
 Deploy the contracts to Hardhat Network:
 
 ```sh
-$ pnpm deploy:contracts"
+$ pnpm deploy:contracts
 ```
 
 ### Tasks
