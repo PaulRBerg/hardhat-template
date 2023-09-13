@@ -75,6 +75,8 @@
     "task:deployGreeter": "hardhat task:deployGreeter",
     "task:setGreeting": "hardhat task:setGreeting",
     "test": "hardhat test",
-    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
+    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
+    "scripts:accounts:ts-node": "TS_NODE_FILES=true ts-node scripts/accounts.ts",
+    "scripts:accounts:hh": "hardhat run scripts/accounts.ts"
   }
 }
