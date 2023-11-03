@@ -66,15 +66,25 @@ You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.
 
 ### Pre Requisites
 
-Before being able to run any command, you need to create a `.env` file and set a BIP-39 compatible mnemonic as an
-environment variable. You can follow the example in `.env.example`. If you don't already have a mnemonic, you can use
-this [website](https://iancoleman.io/bip39/) to generate one.
-
-Then, proceed with installing dependencies:
+First, you need to install the dependencies:
 
 ```sh
 $ pnpm install
 ```
+
+Then, you need to set up all the required configuration variables and, if necessary, the optional ones. To assist with
+the setup process, run `npx hardhat vars setup`. For example, to set a BIP-39 compatible mnemonic variable, execute
+`npx hardhat vars set MNEMONIC`. If you do not already have a mnemonic, you can generate one using this
+[website](https://iancoleman.io/bip39/).
+
+Example:
+
+```sh
+npx hardhat vars set MNEMONIC "here is where your twelve words mnemonic should be put my friend"
+```
+
+For more info on how to set the `Hardhat Configuration Variables` visit the docs
+[here](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables).
 
 ### Compile
 
@@ -126,11 +136,14 @@ $ pnpm coverage
 
 ### Report Gas
 
-See the gas usage per unit test and average gas per method call:
+See the gas usage per unit test and average gas per method call by providing the optional configuration variable
+`REPORT_GAS`:
 
 ```sh
-$ REPORT_GAS=true pnpm test
+$ HARDHAT_VAR_REPORT_GAS=true pnpm test
 ```
+
+The prefix `HARDHAT_VAR_` is needed to temporarily set a Hardhat Configuration Variable via ENV variables.
 
 ### Clean
 
