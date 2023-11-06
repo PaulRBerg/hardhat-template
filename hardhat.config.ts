@@ -1,12 +1,17 @@
 import "@nomicfoundation/hardhat-toolbox";
+import { config as dotenvConfig } from "dotenv";
 import "hardhat-deploy";
 import type { HardhatUserConfig } from "hardhat/config";
 import { vars } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
+import { resolve } from "path";
 
 import "./tasks/accounts";
 import "./tasks/greet";
 import "./tasks/taskDeploy";
+
+const dotenvConfigPath: string = process.env.DOTENV_CONFIG_PATH || "./.env";
+dotenvConfig({ path: resolve(__dirname, dotenvConfigPath) });
 
 // Run 'npx hardhat vars setup' to see the list of variables that need to be set
 
@@ -68,7 +73,7 @@ const config: HardhatUserConfig = {
   },
   gasReporter: {
     currency: "USD",
-    enabled: vars.has("REPORT_GAS"),
+    enabled: process.env.REPORT_GAS ? true : false,
     excludeContracts: [],
     src: "./contracts",
   },
