@@ -23,7 +23,6 @@
     "@typescript-eslint/parser": "^5.44.0",
     "chai": "^4.3.7",
     "cross-env": "^7.0.3",
-    "dotenv": "^16.0.3",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "ethers": "^6.4.0",
