@@ -82,7 +82,7 @@ BIP-39 compatible mnemonic variable, execute:
 
 ```sh
 $ npx hardhat vars set MNEMONIC
-? Enter value: ‣ "here is where your twelve words mnemonic should be put my friend"
+? Enter value: ‣ here is where your twelve words mnemonic should be put my friend
 ```
 
 If you do not already have a mnemonic, you can generate one using this [website](https://iancoleman.io/bip39/).
