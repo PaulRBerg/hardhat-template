@@ -60,6 +60,9 @@ request made to the `main` branch.
 
 Note though that to make this work, you must use your `INFURA_API_KEY` and your `MNEMONIC` as GitHub secrets.
 
+For more information on how to set up GitHub secrets, check the
+[following link](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+
 You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.yml).
 
 ## Usage
