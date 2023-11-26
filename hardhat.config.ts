@@ -1,27 +1,17 @@
 import "@nomicfoundation/hardhat-toolbox";
-import { config as dotenvConfig } from "dotenv";
 import "hardhat-deploy";
 import type { HardhatUserConfig } from "hardhat/config";
+import { vars } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
-import { resolve } from "path";
 
 import "./tasks/accounts";
 import "./tasks/greet";
 import "./tasks/taskDeploy";
 
-const dotenvConfigPath: string = process.env.DOTENV_CONFIG_PATH || "./.env";
-dotenvConfig({ path: resolve(__dirname, dotenvConfigPath) });
+// Run 'npx hardhat vars setup' to see the list of variables that need to be set
 
-// Ensure that we have all the environment variables we need.
-const mnemonic: string | undefined = process.env.MNEMONIC;
-if (!mnemonic) {
-  throw new Error("Please set your MNEMONIC in a .env file");
-}
-
-const infuraApiKey: string | undefined = process.env.INFURA_API_KEY;
-if (!infuraApiKey) {
-  throw new Error("Please set your INFURA_API_KEY in a .env file");
-}
+const mnemonic: string = vars.get("MNEMONIC");
+const infuraApiKey: string = vars.get("INFURA_API_KEY");
 
 const chainIds = {
   "arbitrum-mainnet": 42161,
@@ -66,14 +56,14 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      arbitrumOne: process.env.ARBISCAN_API_KEY || "",
-      avalanche: process.env.SNOWTRACE_API_KEY || "",
-      bsc: process.env.BSCSCAN_API_KEY || "",
-      mainnet: process.env.ETHERSCAN_API_KEY || "",
-      optimisticEthereum: process.env.OPTIMISM_API_KEY || "",
-      polygon: process.env.POLYGONSCAN_API_KEY || "",
-      polygonMumbai: process.env.POLYGONSCAN_API_KEY || "",
-      sepolia: process.env.ETHERSCAN_API_KEY || "",
+      arbitrumOne: vars.get("ARBISCAN_API_KEY", ""),
+      avalanche: vars.get("SNOWTRACE_API_KEY", ""),
+      bsc: vars.get("BSCSCAN_API_KEY", ""),
+      mainnet: vars.get("ETHERSCAN_API_KEY", ""),
+      optimisticEthereum: vars.get("OPTIMISM_API_KEY", ""),
+      polygon: vars.get("POLYGONSCAN_API_KEY", ""),
+      polygonMumbai: vars.get("POLYGONSCAN_API_KEY", ""),
+      sepolia: vars.get("ETHERSCAN_API_KEY", ""),
     },
   },
   gasReporter: {

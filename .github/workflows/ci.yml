@@ -1,7 +1,18 @@
 name: "CI"
 
 env:
-  DOTENV_CONFIG_PATH: "./.env.example"
+  HARDHAT_VAR_MNEMONIC: "test test test test test test test test test test test junk"
+  HARDHAT_VAR_INFURA_API_KEY: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+# Uncomment the following lines to set your configuration variables using
+# GitHub secrets (https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
+#   HARDHAT_VAR_MNEMONIC: ${{ secrets.Mnemonic }}
+#   HARDHAT_VAR_INFURA_API_KEY: ${{ secrets.InfuraApiKey }}
+#   HARDHAT_VAR_ARBISCAN_API_KEY: ${{ secrets.ArbiscanApiKey }}
+#   HARDHAT_VAR_BSCSCAN_API_KEY: ${{ secrets.BscscanApiKey }}
+#   HARDHAT_VAR_ETHERSCAN_API_KEY: ${{ secrets.EtherscanApiKey }}
+#   HARDHAT_VAR_OPTIMISM_API_KEY: ${{ secrets.OptimismApiKey }}
+#   HARDHAT_VAR_POLYGONSCAN_API_KEY: ${{ secrets.PolygonscanApiKey }}
+#   HARDHAT_VAR_SNOWTRACE_API_KEY: ${{ secrets.SnowtraceApiKey }}
 
 on:
   workflow_dispatch:
