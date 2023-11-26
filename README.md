@@ -60,8 +60,8 @@ request made to the `main` branch.
 
 Note though that to make this work, you must use your `INFURA_API_KEY` and your `MNEMONIC` as GitHub secrets.
 
-For more information on how to set up GitHub secrets, check the
-[following link](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+For more information on how to set up GitHub secrets, check out the
+[docs](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
 
 You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.yml).
 
@@ -76,12 +76,14 @@ $ pnpm install
 ```
 
 Then, you need to set up all the required
-[Hardhat Configuration Variables](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) and, if
-necessary, the optional ones. To assist with the setup process, run `npx hardhat vars setup`. For example, to set a
-BIP-39 compatible mnemonic variable, execute:
+[Hardhat Configuration Variables](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables). You might
+also want to install some that are optional.
+
+To assist with the setup process, run `pnpm dlx hardhat vars setup`. To set a particular value, such as a BIP-39
+mnemonic variable, execute this:
 
 ```sh
-$ npx hardhat vars set MNEMONIC
+$ pnpm dlx hardhat vars set MNEMONIC
 ? Enter value: ‣ here is where your twelve words mnemonic should be put my friend
 ```
 
