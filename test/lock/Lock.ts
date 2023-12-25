@@ -26,6 +26,13 @@ describe("Lock", function () {
       this.lockedAmount = lockedAmount;
     });
 
+    it("Should fail if the unlockTime is not in the future", async function () {
+      // We don't use the fixture here because we want a different deployment
+      const latestTime = await time.latest();
+      const Lock = await ethers.getContractFactory("Lock");
+      await expect(Lock.deploy(latestTime, { value: 1 })).to.be.revertedWithCustomError(Lock, "InvalidUnlockTime");
+    });
+
     it("Should set the right unlockTime", async function () {
       expect(await this.lock.unlockTime()).to.equal(this.unlockTime);
     });
@@ -36,13 +43,6 @@ describe("Lock", function () {
 
     it("Should receive and store the funds to lock", async function () {
       expect(await ethers.provider.getBalance(this.lock_address)).to.equal(this.lockedAmount);
-    });
-
-    it("Should fail if the unlockTime is not in the future", async function () {
-      // We don't use the fixture here because we want a different deployment
-      const latestTime = await time.latest();
-      const Lock = await ethers.getContractFactory("Lock");
-      await expect(Lock.deploy(latestTime, { value: 1 })).to.be.revertedWithCustomError(Lock, "InvalidUnlockTime");
     });
   });
 
