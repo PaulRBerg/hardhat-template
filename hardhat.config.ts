@@ -5,8 +5,7 @@ import { vars } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 
 import "./tasks/accounts";
-import "./tasks/greet";
-import "./tasks/taskDeploy";
+import "./tasks/lock";
 
 // Run 'npx hardhat vars setup' to see the list of variables that need to be set
 
