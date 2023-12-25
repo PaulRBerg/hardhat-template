@@ -47,8 +47,8 @@ task("task:withdraw", "Calls the withdraw function of Lock Contract")
   });
 
 task("task:deployLock", "Deploys Lock Contract")
-  .addParam("unlock", "When to unlock funds in seconds (i.e currentTime + --unlock seconds)")
-  .addParam("value", "How much ether you intend locking (in ether not wei i.e 0.1)")
+  .addParam("unlock", "When to unlock funds in seconds (number of seconds into the futrue)")
+  .addParam("value", "How much ether you intend locking (in ether not wei, e.g., 0.1)")
   .setAction(async function (taskArguments: TaskArguments, { ethers }) {
     const NOW_IN_SECONDS = Math.round(Date.now() / 1000);
 

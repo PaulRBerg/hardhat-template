@@ -8,7 +8,7 @@ const UNLOCK_IN_X_DAYS = NOW_IN_SECONDS + DAY_IN_SECONDS * 1; // 1 DAY
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
-  const lockedAmount = hre.ethers.parseEther("0.01");
+  const lockedAmount = hre.ethers.parseEther("0.01").toString();
 
   const lock = await deploy("Lock", {
     from: deployer,
