@@ -71,8 +71,8 @@
     "postcompile": "pnpm typechain",
     "prettier:check": "prettier --check \"**/*.{js,json,md,sol,ts,yml}\"",
     "prettier:write": "prettier --write \"**/*.{js,json,md,sol,ts,yml}\"",
-    "task:deployGreeter": "hardhat task:deployGreeter",
-    "task:setGreeting": "hardhat task:setGreeting",
+    "task:deployLock": "hardhat task:deployLock",
+    "task:withdraw": "hardhat task:withdraw",
     "test": "hardhat test",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
   }
