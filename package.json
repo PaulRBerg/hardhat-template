@@ -61,14 +61,14 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json && pnpm typechain",
+    "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json && bun run typechain",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
-    "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && pnpm typechain",
+    "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && bun run typechain",
     "deploy:contracts": "hardhat deploy",
-    "lint": "pnpm lint:sol && pnpm lint:ts && pnpm prettier:check",
+    "lint": "bun run lint:sol && bun run lint:ts && bun run prettier:check",
     "lint:sol": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --ignore-path ./.eslintignore --ext .js,.ts .",
-    "postcompile": "pnpm typechain",
+    "postcompile": "bun run typechain",
     "prettier:check": "prettier --check \"**/*.{js,json,md,sol,ts,yml}\"",
     "prettier:write": "prettier --write \"**/*.{js,json,md,sol,ts,yml}\"",
     "task:deployLock": "hardhat task:deployLock",
