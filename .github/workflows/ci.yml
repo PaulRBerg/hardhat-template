@@ -3,16 +3,17 @@ name: "CI"
 env:
   HARDHAT_VAR_MNEMONIC: "test test test test test test test test test test test junk"
   HARDHAT_VAR_INFURA_API_KEY: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-# Uncomment the following lines to set your configuration variables using
-# GitHub secrets (https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
-#   HARDHAT_VAR_MNEMONIC: ${{ secrets.Mnemonic }}
-#   HARDHAT_VAR_INFURA_API_KEY: ${{ secrets.InfuraApiKey }}
-#   HARDHAT_VAR_ARBISCAN_API_KEY: ${{ secrets.ArbiscanApiKey }}
-#   HARDHAT_VAR_BSCSCAN_API_KEY: ${{ secrets.BscscanApiKey }}
-#   HARDHAT_VAR_ETHERSCAN_API_KEY: ${{ secrets.EtherscanApiKey }}
-#   HARDHAT_VAR_OPTIMISM_API_KEY: ${{ secrets.OptimismApiKey }}
-#   HARDHAT_VAR_POLYGONSCAN_API_KEY: ${{ secrets.PolygonscanApiKey }}
-#   HARDHAT_VAR_SNOWTRACE_API_KEY: ${{ secrets.SnowtraceApiKey }}
+  # Uncomment the following lines to set your configuration variables using
+  # GitHub secrets (https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
+  #
+  # HARDHAT_VAR_MNEMONIC: ${{ secrets.Mnemonic }}
+  # HARDHAT_VAR_INFURA_API_KEY: ${{ secrets.InfuraApiKey }}
+  # HARDHAT_VAR_ARBISCAN_API_KEY: ${{ secrets.ArbiscanApiKey }}
+  # HARDHAT_VAR_BSCSCAN_API_KEY: ${{ secrets.BscscanApiKey }}
+  # HARDHAT_VAR_ETHERSCAN_API_KEY: ${{ secrets.EtherscanApiKey }}
+  # HARDHAT_VAR_OPTIMISM_API_KEY: ${{ secrets.OptimismApiKey }}
+  # HARDHAT_VAR_POLYGONSCAN_API_KEY: ${{ secrets.PolygonscanApiKey }}
+  # HARDHAT_VAR_SNOWTRACE_API_KEY: ${{ secrets.SnowtraceApiKey }}
 
 on:
   workflow_dispatch:
@@ -28,22 +29,19 @@ jobs:
       - name: "Check out the repo"
         uses: "actions/checkout@v3"
 
-      - name: "Install Pnpm"
-        uses: "pnpm/action-setup@v2"
-        with:
-          version: "8"
-
       - name: "Install Node.js"
         uses: "actions/setup-node@v3"
         with:
-          cache: "pnpm"
           node-version: "lts/*"
 
+      - name: "Install Bun"
+        uses: "oven-sh/setup-bun@v1"
+
       - name: "Install the dependencies"
-        run: "pnpm install"
+        run: "bun install"
 
       - name: "Lint the code"
-        run: "pnpm lint"
+        run: "bun run lint"
 
       - name: "Add lint summary"
         run: |
@@ -51,10 +49,10 @@ jobs:
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
       - name: "Compile the contracts and generate the TypeChain bindings"
-        run: "pnpm typechain"
+        run: "bun run typechain"
 
       - name: "Test the contracts and generate the coverage report"
-        run: "pnpm coverage"
+        run: "bun run coverage"
 
       - name: "Add test summary"
         run: |

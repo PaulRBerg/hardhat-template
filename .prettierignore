@@ -15,6 +15,7 @@ types
 *.log
 .DS_Store
 .pnp.*
+bun.lockb
 coverage.json
 package-lock.json
 pnpm-lock.yaml

@@ -1,7 +1,7 @@
-image: "gitpod/workspace-node:latest"
+image: "gitpod/workspace-bun:latest"
 
 tasks:
-  - init: "pnpm install"
+  - init: "bun install"
 
 vscode:
   extensions:
