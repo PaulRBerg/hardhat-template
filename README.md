@@ -163,20 +163,12 @@ $ pnpm deploy:contracts
 
 ### Tasks
 
-#### Deploy Greeter
+#### Deploy Lock
 
-Deploy a new instance of the Greeter contract via a task:
-
-```sh
-$ pnpm task:deployGreeter --network ganache --greeting "Bonjour, le monde!"
-```
-
-#### Set Greeting
-
-Run the `setGreeting` task on the Ganache network:
+Deploy a new instance of the Lock contract via a task:
 
 ```sh
-$ pnpm task:setGreeting --network ganache --greeting "Bonjour, le monde!" --account 3
+$ pnpm task:deployLock --unlock 100 --value 0.1
 ```
 
 ## Tips
