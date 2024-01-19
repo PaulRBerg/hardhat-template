@@ -72,7 +72,7 @@ You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.
 First, you need to install the dependencies:
 
 ```sh
-$ bun install
+bun install
 ```
 
 Then, you need to set up all the required
@@ -83,7 +83,7 @@ To assist with the setup process, run `bunx hardhat vars setup`. To set a partic
 variable, execute this:
 
 ```sh
-$ bunx hardhat vars set MNEMONIC
+bunx hardhat vars set MNEMONIC
 ? Enter value: ‣ here is where your twelve words mnemonic should be put my friend
 ```
 
@@ -94,7 +94,7 @@ If you do not already have a mnemonic, you can generate one using this [website]
 Compile the smart contracts with Hardhat:
 
 ```sh
-$ bun run compile
+bun run compile
 ```
 
 ### TypeChain
@@ -102,7 +102,7 @@ $ bun run compile
 Compile the smart contracts and generate TypeChain bindings:
 
 ```sh
-$ bun run typechain
+bun run typechain
 ```
 
 ### Test
@@ -110,7 +110,7 @@ $ bun run typechain
 Run the tests with Hardhat:
 
 ```sh
-$ bun run test
+bun run test
 ```
 
 ### Lint Solidity
@@ -118,7 +118,7 @@ $ bun run test
 Lint the Solidity code:
 
 ```sh
-$ bun run lint:sol
+bun run lint:sol
 ```
 
 ### Lint TypeScript
@@ -126,7 +126,7 @@ $ bun run lint:sol
 Lint the TypeScript code:
 
 ```sh
-$ bun run lint:ts
+bun run lint:ts
 ```
 
 ### Coverage
@@ -134,7 +134,7 @@ $ bun run lint:ts
 Generate the code coverage report:
 
 ```sh
-$ bun run coverage
+bun run coverage
 ```
 
 ### Report Gas
@@ -142,7 +142,7 @@ $ bun run coverage
 See the gas usage per unit test and average gas per method call:
 
 ```sh
-$ REPORT_GAS=true bun run test
+REPORT_GAS=true bun run test
 ```
 
 ### Clean
@@ -150,7 +150,7 @@ $ REPORT_GAS=true bun run test
 Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
 
 ```sh
-$ bun run clean
+bun run clean
 ```
 
 ### Deploy
@@ -158,7 +158,7 @@ $ bun run clean
 Deploy the contracts to Hardhat Network:
 
 ```sh
-$ bun run deploy:contracts
+bun run deploy:contracts
 ```
 
 ### Tasks
@@ -168,7 +168,7 @@ $ bun run deploy:contracts
 Deploy a new instance of the Lock contract via a task:
 
 ```sh
-$ bun run task:deployLock --unlock 100 --value 0.1
+bun run task:deployLock --unlock 100 --value 0.1
 ```
 
 ### Syntax Highlighting
@@ -188,13 +188,13 @@ on/off.
 ### Install Ganache
 
 ```sh
-$ npm i -g ganache
+npm i -g ganache
 ```
 
 ### Run a Development Blockchain
 
 ```sh
-$ ganache -s test
+ganache -s test
 ```
 
 > The `-s test` passes a seed to the local chain and makes it deterministic
