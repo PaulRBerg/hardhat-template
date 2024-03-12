@@ -28,6 +28,7 @@
     "ethers": "^6.9.0",
     "fs-extra": "^11.2.0",
     "hardhat": "^2.19.2",
+    "hardhat-deploy": "^0.12.1",
     "hardhat-gas-reporter": "^1.0.9",
     "lodash": "^4.17.21",
     "mocha": "^10.2.0",
