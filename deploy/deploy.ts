@@ -1,5 +1,5 @@
-import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 
 const DAY_IN_SECONDS = 60 * 60 * 24;
 const NOW_IN_SECONDS = Math.round(Date.now() / 1000);

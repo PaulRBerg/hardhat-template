@@ -1,6 +1,6 @@
 import "@nomicfoundation/hardhat-toolbox";
-import type { HardhatUserConfig } from "hardhat/config";
 import "hardhat-deploy";
+import type { HardhatUserConfig } from "hardhat/config";
 import { vars } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 
