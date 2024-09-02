@@ -2,7 +2,7 @@ name: "Create"
 
 # The workflow will run only when the "Use this template" button is used
 on:
-  create:
+  push:
 
 jobs:
   create:
