@@ -2,10 +2,12 @@ plugins:
   - "@trivago/prettier-plugin-sort-imports"
   - "prettier-plugin-solidity"
 printWidth: 120
-proseWrap: "always"
 trailingComma: "all"
 
 overrides:
+  - files: "*.md"
+    options:
+      proseWrap: "always"
   - files: "*.sol"
     options:
       compiler: "0.8.17"

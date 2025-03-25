@@ -19,8 +19,7 @@ jobs:
       - name: "Update package.json"
         env:
           GITHUB_REPOSITORY_DESCRIPTION: ${{ github.event.repository.description }}
-        run:
-          ./.github/scripts/rename.sh "$GITHUB_REPOSITORY" "$GITHUB_REPOSITORY_OWNER" "$GITHUB_REPOSITORY_DESCRIPTION"
+        run: ./.github/scripts/rename.sh "$GITHUB_REPOSITORY" "$GITHUB_REPOSITORY_OWNER" "$GITHUB_REPOSITORY_DESCRIPTION"
 
       - name: "Add rename summary"
         run: |
