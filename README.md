@@ -58,7 +58,8 @@ Foundation's [Solidity extension](https://marketplace.visualstudio.com/items?ite
 This template comes with GitHub Actions pre-configured. Your contracts will be linted and tested on every push and pull
 request made to the `main` branch.
 
-Note though that to make this work, you must use your `INFURA_API_KEY` and your `MNEMONIC` as GitHub secrets.
+Note that by default, the CI uses test values for `MNEMONIC` and `INFURA_API_KEY`. If you want to use your own values,
+you can set them as GitHub secrets.
 
 For more information on how to set up GitHub secrets, check out the
 [docs](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
