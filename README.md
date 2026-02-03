@@ -199,7 +199,7 @@ ganache -s test
 
 > The `-s test` passes a seed to the local chain and makes it deterministic
 
-Make sure to set the mnemonic in your `.env` file to that of the instance running with Ganache.
+Make sure to set the mnemonic using `bunx hardhat vars set MNEMONIC` to that of the instance running with Ganache.
 
 ## License
 
