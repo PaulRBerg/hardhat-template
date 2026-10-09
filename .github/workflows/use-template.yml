@@ -11,7 +11,7 @@ jobs:
     # - https://docs.github.com/en/actions/learn-github-actions/expressions
     if: ${{ !github.event.repository.is_template }}
     permissions: "write-all"
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-24.04"
     steps:
       - name: "Check out the repo"
         uses: "actions/checkout@v4"
