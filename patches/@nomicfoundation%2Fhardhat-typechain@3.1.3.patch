@@ -1,0 +1,13 @@
+diff --git a/dist/src/internal/generate-types.js b/dist/src/internal/generate-types.js
+index 27b9ec6925e07cdbbd03f80c312ee9346a82f812..dc27be8a11aaf413e312741f81972212814df6c5 100644
+--- a/dist/src/internal/generate-types.js
++++ b/dist/src/internal/generate-types.js
+@@ -68,6 +68,8 @@ function addCompiledFilesTransformerIfAbsent(outputTransformers) {
+         modifiedContent = modifiedContent.replaceAll('from "@nomicfoundation/hardhat-ethers/types"', 'from "@nomicfoundation/hardhat-ethers/types"');
+         // Fixes the module augmentation to use the types declared in "ethers-v3"
+         modifiedContent = modifiedContent.replaceAll('declare module "hardhat/types/runtime"', 'declare module "@nomicfoundation/hardhat-ethers/types"');
++        // Module augmentation already merges the base helpers; extending their alias is recursive.
++        modifiedContent = modifiedContent.replaceAll("interface HardhatEthersHelpers extends HardhatEthersHelpersBase", "interface HardhatEthersHelpers");
+         modifiedContent = addSupportForAttachMethod(modifiedContent);
+         return modifiedContent;
+     };

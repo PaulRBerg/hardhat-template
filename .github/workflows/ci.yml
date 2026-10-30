@@ -1,19 +1,14 @@
 name: "CI"
 
 env:
-  HARDHAT_VAR_MNEMONIC: "test test test test test test test test test test test junk"
-  HARDHAT_VAR_INFURA_API_KEY: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+  MNEMONIC: "test test test test test test test test test test test junk"
+  INFURA_API_KEY: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
   # Uncomment the following lines to set your configuration variables using
   # GitHub secrets (https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
   #
-  # HARDHAT_VAR_MNEMONIC: ${{ secrets.Mnemonic }}
-  # HARDHAT_VAR_INFURA_API_KEY: ${{ secrets.InfuraApiKey }}
-  # HARDHAT_VAR_ARBISCAN_API_KEY: ${{ secrets.ArbiscanApiKey }}
-  # HARDHAT_VAR_BSCSCAN_API_KEY: ${{ secrets.BscscanApiKey }}
-  # HARDHAT_VAR_ETHERSCAN_API_KEY: ${{ secrets.EtherscanApiKey }}
-  # HARDHAT_VAR_OPTIMISM_API_KEY: ${{ secrets.OptimismApiKey }}
-  # HARDHAT_VAR_POLYGONSCAN_API_KEY: ${{ secrets.PolygonscanApiKey }}
-  # HARDHAT_VAR_SNOWTRACE_API_KEY: ${{ secrets.SnowtraceApiKey }}
+  # MNEMONIC: ${{ secrets.Mnemonic }}
+  # INFURA_API_KEY: ${{ secrets.InfuraApiKey }}
+  # ETHERSCAN_API_KEY: ${{ secrets.EtherscanApiKey }}
 
 on:
   workflow_dispatch:
@@ -29,11 +24,16 @@ jobs:
       - name: "Check out the repo"
         uses: "actions/checkout@v4"
 
+      - name: "Install Node.js"
+        uses: "actions/setup-node@v4"
+        with:
+          node-version: "24"
+
       - name: "Install Bun"
         uses: "oven-sh/setup-bun@v1"
 
       - name: "Install the dependencies"
-        run: "bun install"
+        run: "bun install --frozen-lockfile"
 
       - name: "Lint the code"
         run: "bun run lint"

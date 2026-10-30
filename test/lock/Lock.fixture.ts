@@ -1,8 +1,13 @@
-import { time } from "@nomicfoundation/hardhat-network-helpers";
-import { ethers } from "hardhat";
+import { network } from "hardhat";
 
-import type { Lock } from "../../types/Lock";
-import type { Lock__factory } from "../../types/factories/Lock__factory";
+import type { Lock } from "../../types/Lock.js";
+import type { Lock__factory } from "../../types/factories/Lock__factory.js";
+
+export const connection = await network.create();
+const {
+  ethers,
+  networkHelpers: { time },
+} = connection;
 
 export async function deployLockFixture() {
   const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;

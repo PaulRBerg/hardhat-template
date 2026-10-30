@@ -1,9 +1,12 @@
 import { task } from "hardhat/config";
 
-task("accounts", "Prints the list of accounts", async (_taskArgs, hre) => {
-  const accounts = await hre.ethers.getSigners();
+export default task("accounts", "Prints the list of accounts")
+  .setInlineAction(async (_taskArgs, hre) => {
+    const { ethers } = await hre.network.create();
+    const accounts = await ethers.getSigners();
 
-  for (const account of accounts) {
-    console.log(account.address);
-  }
-});
+    for (const account of accounts) {
+      console.log(account.address);
+    }
+  })
+  .build();

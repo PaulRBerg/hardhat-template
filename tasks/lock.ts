@@ -1,5 +1,5 @@
+import { loadEnvironmentFromHardhat } from "hardhat-deploy/helpers";
 import { task } from "hardhat/config";
-import type { TaskArguments } from "hardhat/types";
 
 function distance(past: number, future: number): string {
   // get total seconds between the times
@@ -23,41 +23,54 @@ function distance(past: number, future: number): string {
   return `${days} day(s), ${hours} hour(s), ${minutes} minute(s) and ${seconds} second(s)`;
 }
 
-task("task:withdraw", "Calls the withdraw function of Lock Contract")
-  .addOptionalParam("address", "Optionally specify the Lock address to withdraw")
-  .addParam("account", "Specify which account [0, 9]")
-  .setAction(async function (taskArguments: TaskArguments, hre) {
-    const { ethers, deployments } = hre;
-
-    const Lock = taskArguments.address ? { address: taskArguments.address } : await deployments.get("Lock");
-
+export const withdraw = task("task:withdraw", "Calls the withdraw function of Lock Contract")
+  .addOption({ name: "address", description: "Optionally specify the Lock address to withdraw", defaultValue: "" })
+  .addOption({ name: "account", description: "Specify which account [0, 9]", defaultValue: "" })
+  .setInlineAction(async (taskArguments, hre) => {
+    const connection = await hre.network.create();
+    const { ethers } = connection;
     const signers = await ethers.getSigners();
-    console.log(taskArguments.address);
+    const signer = taskArguments.account === "" ? undefined : signers[Number(taskArguments.account)];
+    if (signer === undefined) {
+      throw new Error("Specify an available account with --account [0, 9]");
+    }
+    const address =
+      taskArguments.address || (await loadEnvironmentFromHardhat({ hre, connection })).get("Lock").address;
+    const lock = await ethers.getContractAt("Lock", address);
 
-    const lock = await ethers.getContractAt("Lock", Lock.address);
-
-    const initialBalance = await ethers.provider.getBalance(Lock.address);
-    await lock.connect(signers[taskArguments.account]).withdraw();
-    const finalBalance = await ethers.provider.getBalance(Lock.address);
+    const initialBalance = await ethers.provider.getBalance(address);
+    await (await lock.connect(signer).withdraw()).wait();
+    const finalBalance = await ethers.provider.getBalance(address);
 
     console.log("Contract balance before withdraw", ethers.formatEther(initialBalance));
     console.log("Contract balance after withdraw", ethers.formatEther(finalBalance));
-
     console.log("Lock Withdraw Success");
-  });
+  })
+  .build();
 
-task("task:deployLock", "Deploys Lock Contract")
-  .addParam("unlock", "When to unlock funds in seconds (number of seconds into the future)")
-  .addParam("value", "How much ether you intend locking (in ether not wei, e.g., 0.1)")
-  .setAction(async function (taskArguments: TaskArguments, { ethers }) {
+export const deployLock = task("task:deployLock", "Deploys Lock Contract")
+  .addOption({
+    name: "unlock",
+    description: "When to unlock funds in seconds (number of seconds into the future)",
+    defaultValue: "",
+  })
+  .addOption({
+    name: "value",
+    description: "How much ether you intend locking (in ether not wei, e.g., 0.1)",
+    defaultValue: "",
+  })
+  .setInlineAction(async (taskArguments, hre) => {
+    if (taskArguments.unlock === "" || taskArguments.value === "") {
+      throw new Error("Specify --unlock <seconds> and --value <ether>");
+    }
+    const { ethers } = await hre.network.create();
     const NOW_IN_SECONDS = Math.round(Date.now() / 1000);
-
-    const signers = await ethers.getSigners();
     const lockedAmount = ethers.parseEther(taskArguments.value);
     const unlockTime = NOW_IN_SECONDS + parseInt(taskArguments.unlock);
     const lockFactory = await ethers.getContractFactory("Lock");
     console.log(`Deploying Lock and locking ${taskArguments.value} ETH for ${distance(NOW_IN_SECONDS, unlockTime)}`);
-    const lock = await lockFactory.connect(signers[0]).deploy(unlockTime, { value: lockedAmount });
+    const lock = await lockFactory.deploy(unlockTime, { value: lockedAmount });
     await lock.waitForDeployment();
     console.log("Lock deployed to: ", await lock.getAddress());
-  });
+  })
+  .build();

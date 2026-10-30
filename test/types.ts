@@ -1,6 +1,6 @@
-import type { SignerWithAddress } from "@nomicfoundation/hardhat-ethers/dist/src/signer-with-address";
+import type { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/types";
 
-import type { Lock } from "../types/Lock";
+import type { Lock } from "../types/Lock.js";
 
 type Fixture<T> = () => Promise<T>;
 
@@ -13,5 +13,5 @@ declare module "mocha" {
 }
 
 export interface Signers {
-  admin: SignerWithAddress;
+  admin: HardhatEthersSigner;
 }

@@ -1,10 +1,13 @@
-import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
-import { loadFixture, time } from "@nomicfoundation/hardhat-network-helpers";
+import { anyValue } from "@nomicfoundation/hardhat-ethers-chai-matchers/withArgs";
 import { expect } from "chai";
-import { ethers } from "hardhat";
 
-import type { Signers } from "../types";
-import { deployLockFixture } from "./Lock.fixture";
+import type { Signers } from "../types.js";
+import { connection, deployLockFixture } from "./Lock.fixture.js";
+
+const {
+  ethers,
+  networkHelpers: { loadFixture, time },
+} = connection;
 
 describe("Lock", function () {
   before(async function () {
@@ -76,7 +79,7 @@ describe("Lock", function () {
         // Transactions are sent using the first signer by default
         await time.increaseTo(this.unlockTime);
 
-        await expect(this.lock.withdraw()).not.to.be.reverted;
+        await expect(this.lock.withdraw()).not.to.revert(ethers);
       });
     });
 
@@ -93,6 +96,7 @@ describe("Lock", function () {
         await time.increaseTo(this.unlockTime);
 
         await expect(this.lock.withdraw()).to.changeEtherBalances(
+          ethers,
           [this.owner, this.lock],
           [this.lockedAmount, -this.lockedAmount],
         );

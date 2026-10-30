@@ -10,8 +10,8 @@ overrides:
       proseWrap: "always"
   - files: "*.sol"
     options:
-      compiler: "0.8.17"
-      parser: "solidity-parse"
+      compiler: "0.8.19"
+      parser: "slang"
       tabWidth: 4
   - files: "*.ts"
     options:

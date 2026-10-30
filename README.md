@@ -11,11 +11,11 @@
 
 A Hardhat-based template for developing Solidity smart contracts, with sensible defaults.
 
-- [Hardhat](https://github.com/nomiclabs/hardhat): compile, run and test smart contracts
+- [Hardhat](https://github.com/NomicFoundation/hardhat): compile, run and test smart contracts
 - [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript bindings for smart contracts
 - [Ethers](https://github.com/ethers-io/ethers.js/): renowned Ethereum library and wallet implementation
 - [Solhint](https://github.com/protofire/solhint): code linter
-- [Solcover](https://github.com/sc-forks/solidity-coverage): code coverage
+- [Hardhat coverage](https://hardhat.org/docs/guides/testing/code-coverage): native code coverage
 - [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code formatter
 
 ## Getting Started
@@ -28,9 +28,9 @@ create a new repository with this repo as the initial state.
 This template builds upon the frameworks and libraries mentioned above, so for details about their specific features,
 please consult their respective documentations.
 
-For example, for Hardhat, you can refer to the [Hardhat Tutorial](https://hardhat.org/tutorial) and the
+For example, for Hardhat, you can refer to the [Hardhat Tutorial](https://hardhat.org/docs/tutorial) and the
 [Hardhat Docs](https://hardhat.org/docs). You might be in particular interested in reading the
-[Testing Contracts](https://hardhat.org/tutorial/testing-contracts) section.
+[Testing Contracts](https://hardhat.org/docs/guides/testing) section.
 
 ### Sensible Defaults
 
@@ -38,14 +38,13 @@ This template comes with sensible default configurations in the following files:
 
 ```text
 ├── .editorconfig
-├── .eslintignore
-├── .eslintrc.yml
 ├── .gitignore
 ├── .prettierignore
 ├── .prettierrc.yml
-├── .solcover.js
 ├── .solhint.json
-└── hardhat.config.ts
+├── eslint.config.mjs
+├── hardhat.config.ts
+└── rocketh/config.ts
 ```
 
 ### VSCode Integration
@@ -68,27 +67,29 @@ You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.
 
 ## Usage
 
-### Pre Requisites
+### Prerequisites
 
-First, you need to install the dependencies:
+Use a supported even-numbered Node.js release, at least 22.13.0 (CI uses Node.js 24), and Bun. Install the dependencies:
 
 ```sh
 bun install
 ```
 
-Then, you need to set up all the required
-[Hardhat Configuration Variables](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables). You might
-also want to install some that are optional.
+Local compilation, tests and simulated deployments work without credentials. The local network uses Hardhat's public
+test mnemonic by default. Set `MNEMONIC` to use different local accounts.
 
-To assist with the setup process, run `bunx hardhat vars setup`. To set a particular value, such as a BIP-39 mnemonic
-variable, execute this:
+For remote networks, provide `MNEMONIC` and, for Infura-backed networks, `INFURA_API_KEY` through environment variables
+or the [Hardhat keystore](https://hardhat.org/docs/guides/configuration-variables). For example:
 
 ```sh
-bunx hardhat vars set MNEMONIC
-? Enter value: ‣ here is where your twelve words mnemonic should be put my friend
+bunx hardhat keystore set MNEMONIC
+bunx hardhat keystore set INFURA_API_KEY
 ```
 
-If you do not already have a mnemonic, you can generate one using this [website](https://iancoleman.io/bip39/).
+Set `ETHERSCAN_API_KEY` when verifying contracts. Configuration variables resolve only when the selected operation needs
+them.
+
+See [AGENTS.md](./AGENTS.md) for contributor guidance and toolchain constraints.
 
 ### Compile
 
@@ -132,7 +133,7 @@ bun run lint:ts
 
 ### Coverage
 
-Generate the code coverage report:
+Generate the native code coverage report in `coverage/html/index.html`:
 
 ```sh
 bun run coverage
@@ -143,12 +144,13 @@ bun run coverage
 See the gas usage per unit test and average gas per method call:
 
 ```sh
-REPORT_GAS=true bun run test
+bun run test --gas-stats
 ```
 
 ### Clean
 
-Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
+Clear the smart contract artifacts, coverage reports and Hardhat cache, then rebuild the contracts and TypeChain
+bindings:
 
 ```sh
 bun run clean
@@ -156,11 +158,14 @@ bun run clean
 
 ### Deploy
 
-Deploy the contracts to Hardhat Network:
+Deploy the contracts to the temporary simulated Hardhat network with hardhat-deploy and Rocketh:
 
 ```sh
 bun run deploy:contracts
 ```
+
+Named accounts and deployment extensions live in `rocketh/config.ts`. Deployment scripts live in `deploy/`. To persist
+contracts on a running local node or deploy remotely, pass `--network localhost` or the configured network name.
 
 ### Tasks
 
@@ -171,6 +176,16 @@ Deploy a new instance of the Lock contract via a task:
 ```sh
 bun run task:deployLock --unlock 100 --value 0.1
 ```
+
+#### Withdraw
+
+Withdraw from a deployed Lock after its unlock time:
+
+```sh
+bun run task:withdraw --network localhost --account 0 --address <lock-address>
+```
+
+Omit `--address` to use the saved `Lock` deployment for the selected network.
 
 ### Syntax Highlighting
 
@@ -184,23 +199,22 @@ If you use VSCode, you can get Solidity syntax highlighting with the
 To view the coverage report generated by `bun run coverage`, just click `Go Live` from the status bar to turn the server
 on/off.
 
-## Local development with Ganache
+## Local development
 
-### Install Ganache
-
-```sh
-npm i -g ganache
-```
-
-### Run a Development Blockchain
+Start a persistent Hardhat node:
 
 ```sh
-ganache -s test
+bunx hardhat node
 ```
 
-> The `-s test` passes a seed to the local chain and makes it deterministic
+In another terminal, deploy to that node:
 
-Make sure to set the mnemonic using `bunx hardhat vars set MNEMONIC` to that of the instance running with Ganache.
+```sh
+bun run deploy:contracts --network localhost
+```
+
+Use `--network localhost` for subsequent tasks so they connect to the same chain. The default network creates a
+temporary chain for each command.
 
 ## License
 
